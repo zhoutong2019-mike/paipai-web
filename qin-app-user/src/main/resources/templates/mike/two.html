@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>MOON</title>
+<link rel="stylesheet" th:href="@{/moon/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/icon/css/font-awesome.min.css}" />
+</head>
+<body class="bg-c">
+	<div class="container-fluid" id="app">
+		<div class="row">
+			<div class="col text-center bg-success text-white shadow h3">天气预报查询</div>
+		</div>
+
+		<div class=" form-inline" style="margin-top:30px">
+			城市 : &nbsp;<input type="text" placeholder="_输入城市名"
+				class="form-control " id="city"> &nbsp;
+			<button class="btn btn-info " onclick="findWeather()">查询</button>
+		</div>
+
+		<div class="col-md-8 " style="margin-top:30px">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<h3>天气信息</h3>
+				</div>
+				<div class="panel-body">
+					<table
+						class="table table-bordered table-striped table-hover table-condensed">
+						<tr >
+							<td >天气</td>
+							<td id="weather">1</td>
+						</tr>
+						<tr>
+							<td>日期</td>
+							<td id="date_y"></td>
+						</tr>
+						<tr>
+							<td>week</td>
+							<td id="week"></td>
+						</tr>
+						<tr>
+							<td>穿衣建议</td>
+							<td id="dressing_advice"></td>
+						</tr>
+
+						<tr>
+							<td>体感</td>
+							<td id="dressing_index"></td>
+						</tr>
+						<tr>
+							<td>温度</td>
+							<td id="temp"></td>
+						</tr>
+						<tr>
+							<td>风向</td>
+							<td id="wind_direction"></td>
+						</tr>
+						<tr>
+							<td>风力</td>
+							<td id="wind_strength"></td>
+						</tr>
+						<tr>
+							<td>湿度</td>
+							<td id="humidity"></td>
+						</tr>
+						<tr>
+							<td>刷新时间</td>
+							<td id="time"></td>
+						</tr>
+
+					</table>
+				</div>
+				<div class="panel-footer">天气结束</div>
+			</div>
+		</div>
+	</div>
+	<!-- js -->
+	<script th:src="@{/moon/js/jquery.js}"></script>
+	<script th:src="@{/moon/js/vue.js}"></script>
+	<script th:src="@{/layer/layer.js}"></script>
+	<script th:inline="javascript">
+		//查询天气
+		var findWeather = function() {
+			var city = $('#city').val();
+			$.get("/showWeather", {"city":city}, function(
+					data ) {
+				 data = $.parseJSON(data);
+				$('#temp').text(data.result.sk.temp);
+				$('#wind_direction').text(data.result.sk.wind_direction);
+				$('#wind_strength').text(data.result.sk.wind_strength);
+				$('#humidity').text(data.result.sk.humidity);
+				$('#time').text(data.result.sk.time);
+				$('#weather').text(data.result.today.weather);
+				$('#date_y').text(data.result.today.date_y);
+				$('#week').text(data.result.today.week);
+				$('#dressing_advice').text(data.result.today.dressing_advice);
+				$('#dressing_index').text(data.result.today.dressing_index);
+			});
+		}
+		
+		var app = new Vue({
+			el:"#app",
+			data:{
+				cashdata:[]
+			}
+		});
+
+		var success = function(datas) {
+			app.cashdata=datas.result.data;
+		}
+	</script>
+</body>
+</html>

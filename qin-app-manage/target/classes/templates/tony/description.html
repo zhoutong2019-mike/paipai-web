@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>一拍网-后台商品管理</title>
+<link rel="stylesheet" th:href="@{/moon/css/bootstrap.css}" />
+<link rel="stylesheet" th:href="@{/icon/css/font-awesome.min.css}" />
+<link rel="stylesheet" th:href="@{/moon/css/decription.css}" />
+<style type="text/css">
+
+</style>
+</head>
+<body class="bg-b">
+
+	<!-- 引入导航页面 -->
+	<div th:replace="tony/nav :: mynav"></div>
+
+
+	<div id="root">
+		<div class="container">
+			<div class="pm-top">
+				<div class="row">
+					<div class="col-md-7">
+						<a href="/paipai/Commodity/findAll" class="home">珍品拍卖</a><span
+							class="arrow">&gt;</span><em class="name">拍品详情</em>
+					</div>
+					<div class="col-md-5 ">
+						<span>对拍卖流程有问题？</span><span>拍卖客服专线：<em>400-820-6666</em></span>
+
+					</div>
+				</div>
+			</div>
+			<div class="w">
+				<!-- 商品详情区域 -->
+				<div class="pm-main mt-3" style="width: 1100px; heigth: 509px;">
+					<div class="pm-preview-wrap">
+						<!--图片区域  -->
+						<div class="pm-preview">
+							<div class="pm-preview-flag"></div>
+							<div class="content">
+								<div>
+									<div style="position: relative;">
+										<img th:src="'http://127.0.0.1/img/'+${map.comm.img}"
+											style="width: 350px; height: 350px;">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- 右边区域surplusTime -->
+					<div class="pm-item-info stage-1 ">
+						<div class="pm-name" th:text="${map.comm.pName}"></div>
+						<div class="m pm-summary">
+							<div class="mt">
+								<div class="state " th:if="${map.state==1}">
+									<span style="font-size: 16px; color: #FFFFFF">正在进行</span>
+								</div>
+								<div class="state " th:if="${map.state==0}">
+									<span style="font-size: 16px; color: #FFFFFF">即将发布</span>
+								</div>
+								<div class="state " th:if="${map.state>=2}">
+									<span style="font-size: 16px; color: #FFFFFF" id="myspan">已结束</span>
+								</div>
+								<div class="pm-countdown-wrapper ">
+									<!-- 计时功能区域u -->
+									<div class="pm-countdown ">
+										<div class="countdown" id="timer"></div>
+									</div>
+								</div>
+								<div class="times">
+									<span style="margin-right: 10px"><em
+										th:text="${map.enrollCounts}"></em>人报名</span><span><em>10000</em>人围观</span>
+								</div>
+							</div>
+							<div class="mc">
+
+								<div class="price current  row">
+									<div class=" label">当前价</div>
+									<div class="col-md-2 number">
+										<span>￥</span><em role="button" tabindex="0"
+											th:if="${map.comm.lastPrice!=null}" class="lrc-tooltip-item"
+											th:text="${map.comm.lastPrice}">3,010</em> <em role="button"
+											tabindex="0" th:if="${map.comm.lastPrice==null}"
+											class="lrc-tooltip-item" th:text="${map.comm.firstPrice}">3,010</em>
+									</div>
+								</div>
+								<div class="price base row ">
+									<div class="label">起拍价</div>
+									<div class="number col-md-1">
+										<span>￥</span><em role="button" tabindex="0"
+											class="lrc-tooltip-item" th:text="${map.comm.firstPrice}">3,000</em>
+									</div>
+								</div>
+								<!-- 如果报名了,展示进入竞拍室 -->
+								<div class="prompt">
+									<div>如果没有获拍，保证金将在拍卖结束后1-15个工作日退还至原支付账户。</div>
+								</div>
+							</div>
+							<div class="mb">
+								<div class="sm pm-deals  text-center">
+									<div style="font-size: 14px">此拍品截至目前出价排行榜(最多截取前三)</div>
+									<div class="smc">
+										<table class="table mytable">
+											<tr th:if="${map.maxRecord} !=null">
+												<th>用户编号</th>
+												<th><span>出价</span></th>
+												<th>出价时间</th>
+											</tr>
+											<tr th:if="${map.maxRecord} !=null">
+												<td th:text="${map.maxRecord.uId}"></td>
+												<td><span th:text="' '+${map.maxRecord.paiPrice}"></span><em
+													style="background: #C71622; color: #FFF">最高价</em></td>
+												<td
+													th:text="${#dates.format(map.maxRecord.paiTime, ' HH:mm:ss yyyy/dd/MM')}"></td>
+											</tr>
+											<!--  -->
+											<tr th:if="${map.listpart} !=null" th:each="part : ${map.listpart}">
+												<td th:text="${part.uId}"></td>
+												<td th:text="${part.paiPrice}"></td>
+												<td
+													th:text="${#dates.format(part.paiTime, ' HH:mm:ss yyyy/dd/MM')}"></td>
+											</tr>
+											<tr th:if="${map.listpart}==null">
+												<td>暂无记录</td>
+												<td>暂无记录</td>
+												<td>暂无记录</td>
+												<td>暂无记录</td>
+											</tr>
+
+										</table>
+									</div>
+								</div>
+								<br>
+								<div class="pm-tips">
+									<div class="list description ">
+										<span>&nbsp;</span>
+										<ul>
+											<li style="font-size: 14px">拍卖说明</li>
+											<li><span>起拍价：</span><em th:text="${map.comm.firstPrice}"></em></li>
+											<li><span>加价幅度：</span><em th:text="${map.comm.priceStep}"></em></li>
+											<li><span>保证金：</span><em th:text="${map.comm.margin}"></em></li>
+											<li><span>保留价：</span><em>无</em><i role="button"
+												tabindex="0" class="lrc-tooltip-item">?</i></li>
+											<!-- <li><span>延时周期：</span><em>5分钟/次</em><i role="button"
+												tabindex="0" class="lrc-tooltip-item">?</i></li> -->
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="pm-flow pm-flow-zhenpin border">
+					<div class="titlevt ">竞拍流程：</div>
+					<ul class="contentvt  ">
+						<li class="item item0"><a href="javascript:;"><i
+								class="fa fa-chevron-right"></i>&nbsp;&nbsp;<em>交保证金</em></a></li>
+						<li class="item item1"><span></span><a href="javascript:;"><i
+								class="fa fa-chevron-right"></i>&nbsp;&nbsp;<em>参与竞拍</em></a></li>
+						<li class="item item2"><span></span><a href="javascript:;"><i
+								class="fa fa-chevron-right"></i>&nbsp;&nbsp;<em>竞拍成功</em></a></li>
+						<li class="item item3"><span></span><a href="javascript:;"><i
+								class="fa fa-chevron-right"></i>&nbsp;&nbsp;<em>支付货款</em></a></li>
+						<li class="item item4"><span></span><a " href="javascript:;"><i
+								class="fa fa-chevron-right"></i>&nbsp;&nbsp;<em>交易完成</em></a></li>
+					</ul>
+				</div>
+				<div class="pm-main">
+					<div class="pm-content">
+						<div class="nav ">
+							<ul class=" myul-zhou ">
+								<li class="nav-item  btn">出价记录( <em th:text="${map.bidCounts} "></em>
+									)
+								</li>
+								<li class="nav-item nav-active btn"><a href="#ct1"
+									class="btn btn-outline-success">商品详情</a></li>
+							</ul>
+
+						</div>
+						<div class="mydiv">
+							<h3>出价记录</h3>
+						</div>
+
+						<ul class="floors border">
+
+							<li class="floor border" tabindex="3">
+								<div class="floor-content">
+									<table class="bidList table">
+										<thead>
+											<tr>
+												<th>状态</th>
+												<th>价格</th>
+												<th>竞拍人</th>
+												<th>时间</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr th:if="${map.maxRecord}!=null">
+												<td><div class="status">领先</div></td>
+												<td><div class="price"
+														th:text="'￥'+${map.maxRecord.paiPrice}">￥3,010</div></td>
+												<td><div class="username " th:text="${map.maxRecord.uId}">23638378</div></td>
+												<td><div class="bidTime"
+														th:text="${#dates.format(map.maxRecord.paiTime, ' HH:mm:ss dd/MMM/yyyy')}">2019-11-30
+														12:20:59</div></td>
+											</tr>
+											<tr th:if="${map.listall}!=null" th:each="record : ${map.listall}">
+												<td><div class="status">出局</div></td>
+												<td><div class="price" th:text="'￥'+${record.paiPrice}"></div></td>
+												<td><div class="username" th:text="${record.uId}">23634984</div></td>
+												<td><div class="bidTime"
+														th:text="${#dates.format(record.paiTime, ' HH:mm:ss dd/MMM/yyyy')}">2019-11-30
+														10:00:44</div></td>
+											</tr>
+											<tr th:if="${map.listall}==null">
+												<td>暂无记录</td>
+												<td>暂无记录</td>
+												<td>暂无记录</td>
+												<td>暂无记录</td>
+											</tr>
+										</tbody>
+									</table>
+									<div class="pager-wrapper"></div>
+								</div>
+							</li>
+							<li class="floor border" id="ct1"><h3 class="floor-title">
+									<h3>拍品详情</h3>
+								</h3>
+								<div>
+									<br> <img th:src="'http://127.0.0.1/img/'+${map.comm.info}" alt="不存在"
+										id=" 1p73-f265a72bd417-b7">
+								</div></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- js -->
+	<script th:src="@{/moon/js/jquery.js}"></script>
+	<script th:src="@{/moon/js/vue.js}"></script>
+	<script th:src="@{/layer/layer.js}"></script>
+	<script th:inline="javascript">
+		//倒计时功能实现
+		//距离结束仅剩：<span><em>08</em> 时</span><span><em> 11</em> 分</span><span><em>06
+		//	</em>秒</span>
+		var timehtml = "";
+		var maxtime = '';
+		var state = [[${map.state}]];
+
+		
+		function countTime() {
+			
+			if(state==1){
+				 maxtime = [[${map.surplusTime}]];
+				
+			}else if(state==0){
+				maxtime = null ;
+			}else {
+				maxtime = -1 ;
+			}
+			if (maxtime > 0) {
+				//var day = Math.floor(maxtime/3600/24);
+				var hour = Math.floor(maxtime / 3600);
+				var minute = Math.floor(maxtime % 3600 / 60);
+				var seconds = Math.floor(maxtime % 3600 % 60);
+				//4000s  小时=4000/3600  分钟=  4000%3600/60   秒=4000%3600%60 
+				timehtml = "距离结束仅剩：<span>" + hour + " 时</span><span> " + minute
+						+ " 分</span><span> " + seconds + " 秒</span>";
+				$('#timer').html(timehtml);
+				maxtime--;
+			} 
+	
+			else if(maxtime==0){
+				clearInterval(timer);
+				timehtml = "<span><em>该商品拍卖已结束</em></span>"
+				$('#span').text('已结束');
+				$('#timer').html(timehtml);
+				//提交ajax请求; 发出指令进入提交订单逻辑 
+				submitOrder();
+			}else if(maxtime==null){
+				timehtml = "<span><em>该商品拍卖还未开始</em></span>"
+					$('#timer').html(timehtml);
+					$('#span').text('尚未开始');
+				clearInterval(timer);	
+			}else {
+				clearInterval(timer);
+				timehtml = "<span><em>该商品拍卖已结束</em></span>"
+					$('#timer').html(timehtml);
+					$('#span').text('已结束');
+			}
+			function submitOrder(){
+				var pId = [[${map.comm.pId}]];
+				$.get('/paipai/Record/submitOrder',{"pId":pId},function(data){
+					
+				})
+			}
+		}
+		/* 提交订单请求 */
+		
+		/* 页面加载就开始做定时任务 */
+		var timer = setInterval("countTime()", 1000);
+		/* 支付流程 */
+		var pId = [[${map.comm.pId}]];//全局变量
+		function pay(){
+			var margin = [[${map.comm.margin}]] ;
+			layer.confirm("确认支付吗?",{
+				icon: 3, 
+				title:'提示'
+				},function(index){     
+			    	layer.msg("支付中,正在从账户中扣款...");
+			    	$.post("/paipai/Record/insertEnrollMsg",
+			    			{"pId":pId,"margin":margin},
+			    			function(data){
+			    				if(data=="success"){
+			    					setTimeout(function () {layer.alert("支付成功!");},3000);
+			    					setTimeout(function () {location.reload();},6000);
+			    				}else{
+			    					layer.alert(data);
+			    				}
+			    	},"text")
+				 
+				 
+				 layer.close(index);
+			    	});
+
+		    }
+
+		
+		
+		/* 在商品输入框动态显示最input相关属性 */
+		showInputNumber();
+		 function showInputNumber(){
+		 		var newbiddingPrice =  [[${map.comm.lastPrice}]];
+		 		var firstPrice =  [[${map.comm.firstPrice}]];
+				var stepPrice = [[${map.comm.priceStep}]];
+				var biddingPrice=newbiddingPrice+stepPrice;
+				$('#biddingPrice').prop("min",biddingPrice);
+				$('#biddingPrice').prop("step",stepPrice);	
+				if(newbiddingPrice!=null)
+					$('#biddingPrice').prop("value",biddingPrice);
+				else
+					$('#biddingPrice').prop("value",firstPrice);
+			}
+		 
+		 /* 当点击我要竞拍时,发送ajax请求 */
+		 var uId = [[${session.loginid}]];
+		 function biddingIt(){
+			 var biddingPrice =  $('#biddingPrice').val();
+			 $.get("/paipai/Record/biddingIt",
+					 {"pId":pId,"uId":uId,"biddingPrice":biddingPrice},
+					 function(data){
+						 layer.msg("正在竞拍...",{inco:1});
+						 if(data=='ok'){
+		    					setTimeout(function () {layer.alert("竞拍成功!");},3000);
+		    					setTimeout(function () {location.reload();},6000);
+						 }else{
+							 layer.alert(data);
+						 }
+			 },"text");
+			 
+		 }
+	</script>
+</body>
+</html>

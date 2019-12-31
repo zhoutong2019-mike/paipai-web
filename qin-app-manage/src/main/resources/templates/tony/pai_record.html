@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>一拍网</title>
+<!-- <link rel="stylesheet" th:href="@{/moon/css/bootstrap.css}" /> -->
+<link rel="stylesheet" th:href="@{/moon/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/icon/css/font-awesome.min.css}" />
+
+<style type="text/css">
+.divo {
+	height: 800px;
+}
+</style>
+
+
+</head>
+<body>
+	<div class="container-fluid border divo" id="app">
+		<div class="col-md-4 col-md-offset-4 ">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3>拍卖记录</h3>
+				</div>
+				<div class="panel-body">
+					<table class="bidList table">
+						<thead>
+							<tr>
+								<th>拍卖价格</th>
+								<th>竞拍人</th>
+								<th>时间</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr v-for="data in biddingdata">
+								<td><div class="price" >{{data.paiPrice}}</div></td>
+								<td><div class="username" >{{data.uId}}</div></td>
+								<td><div class="bidTime" >{{data.paiTime |filterTime}}</div></td>
+							</tr>
+							<tr v-if="biddingdata==''" class="row">
+								
+								<td class="col-md-8">暂无记录</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="panel-footer　form-inline">
+					<button class="btn btn-success " style="margin-left: 620px"
+						onclick="closelayer()">关闭</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- js -->
+	<script th:src="@{/moon/js/jquery.js}"></script>
+	<script th:src="@{/moon/js/vue.js}"></script>
+	<script th:src="@{/moon/js/bootstrap.js}"></script>
+	<script th:src="@{/layer/layer.js}"></script>
+	<script th:src="@{/moon/js/jquery.time.js}"></script>
+	<script th:inline="javascript">
+		/* 定义vue */
+		var app = new Vue({
+			el:'#app',
+			data : {
+				biddingdata:[]
+			},
+			filters : {
+				
+				filterTime : function(time) {
+					return $.msfmt.todate(time,true,8);
+				} 
+			}
+		})
+		
+		var pId = [[${pId}]] ;
+		showBiddingMsg();
+		function showBiddingMsg() {
+			$.get("/paipai/Administrator/showbiddingRecord",{
+				"pId" :pId
+			},function(data){
+				app.biddingdata = data.list ;
+			});
+		}
+		
+		function closelayer(){
+			window.parent.layer.closeAll();
+		}
+		
+
+	</script>
+</body>
+</html>

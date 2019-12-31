@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.paipai.dao.RecordMapper">
+  <resultMap id="BaseResultMap" type="com.paipai.entity.Record">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="c_id" jdbcType="INTEGER" property="cId" />
+    <result column="u_id" jdbcType="INTEGER" property="uId" />
+    <result column="pai_time" jdbcType="TIMESTAMP" property="paiTime" />
+    <result column="pai_price" jdbcType="DOUBLE" property="paiPrice" />
+    <result column="ispai" jdbcType="TINYINT" property="ispai" />
+    <result column="ispay" jdbcType="TINYINT" property="ispay" />
+    <result column="pay_time" jdbcType="TIMESTAMP" property="payTime" />
+    <result column="pay_cash" jdbcType="DOUBLE" property="payCash" />
+    <result column="mail_addr" jdbcType="VARCHAR" property="mailAddr" />
+    <result column="mail_name" jdbcType="VARCHAR" property="mailName" />
+    <result column="mail_mobile" jdbcType="VARCHAR" property="mailMobile" />
+    <result column="mail_remarks" jdbcType="VARCHAR" property="mailRemarks" />
+  </resultMap>
+	<sql id="baseColumn">
+		id,c_id,u_id,pai_time,pai_price,ispai
+	</sql>
+
+	<sql id="insertColumn">
+		c_id,u_id,pai_time,pai_price,ispai
+	</sql>
+
+	<!--List&amp;amp;amp;amp;amp;amp;amp;lt;Record&amp;amp;amp;amp;amp;amp;amp;gt; selectRecordByPIdAndDesc(Integer 
+		cId); -->
+
+	<select id="selectRecordByPIdAndDesc" parameterType="int" resultMap="BaseResultMap">
+		select
+		<include refid="baseColumn" />
+		from record
+		where c_id = #{value} and ispai =1
+		order by pai_price DESC
+		limit 0,3;
+	</select>
+
+	<!-- int selectEnrollCounts(Integer cId); -->
+
+	<select id="selectEnrollCounts" parameterType="Integer" resultType="Integer">
+		select count(0) FROM (select u_id from record
+		where c_id = #{value} and ispai =0
+		group by u_id ) A
+
+	</select>
+
+	<!-- Record selectRecordByUidAndCid(Integer cId, Integer uId); -->
+	<select id="selectRecordByUidAndCid" resultMap="BaseResultMap">
+		select
+		<include refid="baseColumn" />
+		from record
+		where c_id=#{cId} and u_id=#{uId} and ispai=0
+
+	</select>
+
+	<insert id="insertEnrollRecord">
+		insert into record
+		(
+		<include refid="insertColumn" />
+		) values
+		(#{cId},#{uId},now(),#{margin},#{ispai})
+
+	</insert>
+
+	<!-- List&amp;amp;amp;amp;lt;Record&amp;amp;amp;amp;gt; selectRecordByUid(Integer uId); -->
+
+	<select id="selectRecordByUid" parameterType="Integer" resultMap="BaseResultMap">
+		select
+		<include refid="baseColumn" />
+		from record
+		where u_id = #{value} and ispai != 1
+		order by pai_time desc
+	</select>
+
+	<!--List&amp;amp;amp;lt;Map&amp;amp;amp;lt;String, Object&amp;amp;amp;gt;&amp;amp;amp;gt; selectPaiDataByUid(Integer uId); -->
+	<select id="selectPaiDataByUid" parameterType="Integer" resultType="map">
+		SELECT c.p_id AS pId,c.p_name AS pName,c.access_num AS
+		accessNum,c.img,c.type,c.first_price AS firstPrice,
+		c.last_price AS lastPrice,c.margin,c.price_step AS
+		priceStep,c.info,c.state,c.seller_name AS sellerName,
+		c.publish_time AS publishTime,r.id,r.c_id AS cId,r.u_id AS uId,r.pai_time AS
+		paiTime,
+		r.pai_price AS paiPrice,r.ispai AS ispai
+		FROM
+		commodity AS c ,record AS r
+		WHERE
+		c.p_id = r.c_id AND r.u_id = #{value} AND (ispai =1 or ispai =4)
+		ORDER BY paiTime DESC
+	</select>
+
+	<!-- List&amp;amp;amp;lt;Integer&amp;amp;amp;gt; selectUidsByPid(Integer pId); -->
+		<select id="selectUidsByPid" parameterType="Integer" resultType="Integer">
+			SELECT DISTINCT
+			record.u_id
+			FROM
+			record
+			WHERE
+			record.c_id = #{value} AND ispai =0
+		</select>
+
+	<!-- List&amp;amp;amp;lt;Map&amp;amp;amp;lt;String, Object&amp;amp;amp;gt;&amp;amp;amp;gt; selectOrderAndCommodityByUid(Integer uId); -->
+	
+	<select id="selectOrderAndCommodityByUid" parameterType="Integer" resultType="map">
+		SELECT c.p_id AS pId,c.p_name AS pName,c.access_num AS
+		accessNum,c.img,c.type,c.first_price AS firstPrice,
+		c.last_price AS lastPrice,c.margin,c.price_step AS
+		priceStep,c.info,c.state,c.seller_name AS sellerName,
+		c.publish_time AS publishTime,r.id,r.c_id AS cId,r.u_id AS uId,r.pai_time AS
+		paiTime,
+		r.pai_price AS paiPrice,r.ispai,r.ispay
+		FROM
+		commodity AS c left join record AS r
+		on
+		c.p_id = r.c_id where r.u_id = #{value} AND ispai =4 <!--4表示成功拍卖的订单记录  -->
+		ORDER BY paiTime ASC
+		
+	</select>
+	
+	<!--List&amp;amp;lt;Map&amp;amp;lt;String, Object&amp;amp;gt;&amp;amp;gt; selectOrderAndCommodityByUidAndIsPay(@Param("uId")Integer uId,@Param("ispay") byte ispay); -->
+	<select id="selectOrderAndCommodityByUidAndIsPay" resultType="map">
+		SELECT c.p_id AS pId,c.p_name AS pName,c.access_num AS
+		accessNum,c.img,c.type,c.first_price AS firstPrice,
+		c.last_price AS lastPrice,c.margin,c.price_step AS
+		priceStep,c.info,c.state,c.seller_name AS sellerName,
+		c.publish_time AS publishTime,r.id,r.c_id AS cId,r.u_id AS uId,r.pai_time AS
+		paiTime,
+		r.pai_price AS paiPrice,r.ispai,r.ispay
+		FROM
+		commodity AS c left join record AS r
+		on
+		c.p_id = r.c_id where r.u_id = #{uId} AND ispai =4 AND ispay = #{ispay}<!--4表示成功拍卖的订单记录  -->
+		ORDER BY paiTime ASC	
+	</select>
+	
+	<!--byte selectIspayByUidAndPid(Integer uId, Integer pId);  -->
+	<select id="selectIspayByUidAndPid" resultType="Byte">
+		select ispay from record
+		where c_id=#{pId} and u_id=#{uId} and ispai=4
+	</select>
+	
+	<!--int updateIspayByUidAndPid(@Param("uId")Integer uId, @Param("pId")Integer pId, @Param("newIspay")byte newIspay);  -->
+
+	<update id="updateIspayByUidAndPid">
+		update record set ispay = #{newIspay} 
+		where c_id=#{pId} and u_id=#{uId} and ispai=4
+	</update>
+
+	<!-- int updateIspayAndPaytimeByUidAndPid(@Param("uId")Integer uId, @Param("pId")Integer pId, @Param("newIspay")byte newIspay); -->
+
+	<update id="updateIspayAndPaytimeByUidAndPid">
+		update record set ispay = #{newIspay} ,pay_time = now()
+		where id=#{orderId}
+	</update>
+	
+	<!-- int updateOrderFinalMsg(OrderModel orderModel); -->
+	
+	<update id="updateOrderFinalMsg" parameterType="com.paipai.model.OrderModel">
+		update record 
+		<set>
+			ispay = 1 ,pay_time = now(),pay_cash = #{orderCash} ,mail_addr = #{addr},
+			mail_mobile = #{mobile} , mail_name = #{username} 
+			<if test="remarks != ''">
+				,mail_remarks = #{remarks}
+			</if>
+		
+		</set>
+		where id=#{orderId}
+	</update>
+
+</mapper>

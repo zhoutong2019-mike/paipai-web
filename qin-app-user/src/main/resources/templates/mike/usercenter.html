@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>一拍网</title>
+<link rel="stylesheet" th:href="@{/moon/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/icon/css/font-awesome.min.css}" />
+<link rel="stylesheet" th:href="@{/edit/wangEditor.css}" />
+
+<style type="text/css">
+#checkCode {
+	font-family: Arial;
+	font-style: italic;
+	font-weight: bold;
+	border: 0;
+	letter-spacing: 2px;
+	color: blue;
+}
+
+input {
+	width: 250px;
+}
+</style>
+
+</head>
+<body class="bg-b">
+	<!-- 引入导航页面 -->
+	<!-- <div th:replace="mike/nav :: mynav"></div> -->
+	<div class="col-md-8 col-md-offset-2 mt-5" id="app">
+		<div class="panel panel-primary">
+		   <div class="panel-heading">
+                <h3>用户信息</h3>
+            </div>
+			<div class="panel-body">
+				<table
+					class="table table-bordered">
+					<tr>
+						<td>用戶名</td>
+						<td>{{userdata.username}}</td>
+					</tr>
+					<tr>
+						<td>注册时间</td>
+						<td>{{userdata.createTime|filterDate}}</td>
+					</tr>
+					<tr>
+						<td>密码</td>
+						<td class="form-inline"><input type="password" id="inputpw" v-model="password" class="form-control">
+							&nbsp;<i class="fa fa-eye" aria-hidden="true" onclick="showPW()"></i></td>
+					</tr>
+					<tr>
+						<td>手机号</td>
+						<td><input type="text" v-model="mobile" class="form-control"></td>
+					</tr>
+					<tr>
+						<td>邮箱</td>
+						<td><input type="text" v-model="email" class="form-control"></td>
+					</tr>
+					<tr>
+						<td>地址</td>
+						<td><input type="text"  v-model="addr" class="form-control"></td>
+					</tr>
+				</table>
+			</div>
+			<div class="panel-footer row ">
+			<!-- 	<div class="col  ml-5">
+					<a class="btn btn-info" href="/" target="_blank">返回主页</a>
+				</div> -->
+				<div style="margin-left:500px">
+					<button class="btn btn-warning btn-lg" onclick="updateMsg()">一键更新</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<!-- js -->
+	<script th:src="@{/moon/js/jquery.js}"></script>
+	<script th:src="@{/moon/js/vue.js}"></script>
+	<script th:src="@{/layer/layer.js}"></script>
+	<script th:src="@{/edit/wangEditor.js}"></script>
+	<script th:src="@{/moon/js/jquery.time.js}"></script>
+	<script th:inline="javascript">
+		var app = new Vue({
+			el : "#app",
+			data : {
+				userdata : [],
+				username : "",
+				password : "",
+				mobile : "",
+				email : "",
+				addr : ""
+			},
+			filters : {
+
+				filterDate : function(val) {
+					return $.msfmt.todate(val, true, 8);
+				}
+
+			}
+		});
+		/* 更新个人中心数据 */
+		function updateMsg() {
+			$.post("/paipai/User/updateMsg", {
+				username : app.username,
+				password : app.password,
+				mobile : app.mobile,
+				email : app.email,
+				addr : app.addr
+			}, function(data) {
+
+				if (data == "ok") {
+					app.password = data.password;
+					app.mobile = data.mobile;
+					app.email = data.email;
+					app.addr = data.addr;
+					layer.msg('更新成功!');
+					
+				} else {
+					layer.msg('更新失败!');
+				}
+				showcenter();
+			})
+		}
+
+		/*展示个人中心  */
+		function showcenter() {
+			$.get("/paipai/User/showcenter", {}, function(data) {
+				if (data == null) {
+					layer.msg("用户未登录,请先登录");
+					setTimeout('JumpToUrl()', 2000);
+				}
+				app.userdata = data;
+				app.password = data.password;
+				app.mobile = data.mobile;
+				app.email = data.email;
+				app.addr = data.addr;
+				app.username = data.username;
+			})
+		}
+		$(function() {
+			//页面刷新的时候发送ajax请求
+			showcenter();
+		})
+		function JumpTocenter() {
+			location = '/goCenter';
+		}
+		function JumpToUrl() {
+			location = '/login';
+		}
+		//显示密码
+		function showPW() {
+			var attr = $('#inputpw').prop("type");
+			if (attr == "password")
+				$('#inputpw').prop("type", "text");
+			else
+				$('#inputpw').prop("type", "password");
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>一拍网</title>
+<!-- <link rel="stylesheet" th:href="@{/moon/css/bootstrap.css}" /> -->
+<link rel="stylesheet" th:href="@{/moon/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/icon/css/font-awesome.min.css}" />
+
+<style type="text/css">
+li {
+	margin-left: 50px;
+}
+
+.divo {
+	height: 800px;
+}
+</style>
+
+
+</head>
+<body class="bg-b">
+	<div class="container-fluid border divo" id="app">
+		<div class="row ">
+			<div class="col text-center  text-white shadow h3"
+				style="background: #80B9F3; height: 60px; line-height: 60px; color: #FFF">拍品后台中心</div>
+		</div>
+
+
+
+		<!-- 订单中心 -->
+		<div class="tab-pane" id="myorder">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<h3 class="panel-title">拍品条件查询</h3>
+				</div>
+				<div class="panel-body" style="overflow-x: scroll;">
+					<div class="row form-inline">
+						<div class="col-md-4 ">
+							拍品状态 ： <select name="type" id="type" class="form-control"
+								onchange="selectEvent()">
+								<option value="">全部拍品</option>
+								<option value="0">未开始</option>
+								<option value="1">拍卖中</option>
+								<option value="2">已结束</option>
+								<option value="3">已成交</option>
+							</select>
+						</div>
+						<div class="col-md-6 col-offset-md-3">
+							发布时间 <input type="date" class="form-control" v-model="startTime">
+							~ <input type="date" class="form-control" v-model="endTime"
+								id="endTime">
+						</div>
+					</div>
+				</div>
+				<div class="form-content">
+					<div class="tab-content">
+						<div class="tab-pane active" id="allorder">
+							<div class="col-md-12  col-sm-12 col-xs-12">
+								<div class="panel panel-info">
+									<div class="panel-heading">
+										<h3 class="panel-title">全部拍品</h3>
+									</div>
+									<div class="panel-body" style="overflow-x: scroll;"
+										id="allorderDetail">
+										<table class="table " id="tb-allorder">
+											<tr>
+												<th>拍品编号</th>
+												<th>拍品名称</th>
+												<th>拍品详情</th>
+												<th>最新价格</th>
+												<th>卖家账号</th>
+												<th>发布时间</th>
+												<th>状态</th>
+												<th>操作</th>
+											</tr>
+											<template v-for="commo in commoditydatas">
+											<tr v-if="selectState=='' ||commo.state==selectState">
+												<td>{{commo.pId}}</td>
+												<td style="width: 300px"><a :href="'/paipai/Administrator/description?pId='+commo.pId" target="_blank">{{commo.pName}}</a></td>
+												<td><img alt="no exist !"
+													:src="'http://127.0.0.1/img/'+commo.img"
+													class="img-responsive
+												img-rounded"
+													style="width: 87px; height: 87px"></td>
+												<td>{{commo.lastPrice==null?commo.firstPrice:commo.lastPrice}}</td>
+												<td>{{commo.sellerName}}</td>
+												<td>{{commo.publishTime|filterTime}}</td>
+												<td>{{commo.state|filterState}}</td>
+												<td v-if="commo.state==1"><button
+														class="btn btn-danger" @click="stopPai(commo.pId)">终止拍卖</button>
+													<br> <br>
+													<button class="btn btn-info"
+														@click="biddingRoom(commo.pId)">进入竞价室</button></td>
+												<td v-if="commo.state==3"><button
+														class="btn btn-success" @click="recorddetails(commo.pId)">
+														<i class="fa  fa-list-alt">查看记录</i>
+													</button></td>
+												<td v-if="commo.state==0"><button class="btn btn-warning"
+														onclick="remind()"><i class="fa fa-commenting-o"
+													aria-hidden="true" >提醒卖家</i></button></td>
+
+												<td v-if="commo.state==2"><i class="fa fa-frown-o fa-md" 
+													title="无人竞拍或被管理员下架">拍卖失败</i></td>
+											</tr>
+											</template>
+										</table>
+									</div>
+								</div>
+								<div class="col-md-12 col-md-offset-3 ">
+									<div id="pager" class="pagination pagination-sm"></div>
+								</div>
+							</div>
+						</div>
+						<!--订单选项卡结束  -->
+						<!--分页模块  -->
+						<div class="row" style="margin-top: 50px">&nbsp;</div>
+
+					</div>
+				</div>
+			</div>
+			<br>
+			<hr>
+		</div>
+	</div>
+	<!-- js -->
+	<script th:src="@{/moon/js/jquery.js}"></script>
+	<script th:src="@{/moon/js/vue.js}"></script>
+	<script th:src="@{/moon/js/bootstrap.js}"></script>
+	<script th:src="@{/layer/layer.js}"></script>
+	<script th:src="@{/moon/js/jquery.time.js}"></script>
+	<script th:src="@{/page/jqpaginator.js}"></script>
+	<script th:inline="javascript">
+		/* 页面加载发送请求查询订单信息 */
+		/* 定义vue */
+		var app = new Vue({
+			el : "#app",
+			data : {
+				commoditydatas : [],
+				startTime : '',
+				endTime : '',
+				selectState : ''
+			},
+			filters : {
+
+				filterTime : function(time) {
+					if (time == null)
+						return "未发布";
+
+					return $.msfmt.todate(time, true, 8);
+				},
+				filterState : function(state) {
+					if (state == 0)
+						return "暂未发布";
+					else if (state == 1)
+						return "发布中";
+					else if (state == 2)
+						return "已结束";
+					else if (state == 3)
+						return "已成交 ";
+				}
+			}
+
+		});
+
+		var pageNum = 1;
+		function initCommodity() {
+			$.get("/paipai/Administrator/initCommodity", {
+				"pageNum" : pageNum,
+				"pageSize" : 80
+			}, function(data) {
+				if (JSON.stringify(data.list) == '"error"') {
+					layer.alert('服务器出了点小问题...');
+					return;
+				}
+				app.commoditydatas = data.list;
+				//动态改变pager:totalPages
+				$("#pager").jqPaginator("option", {
+					totalPages : data.pagecount
+				});
+			})
+		}
+		//分页插件
+		$('#pager').jqPaginator({
+			totalPages : 1,
+			currentPage : 1,
+			onPageChange : function(num, type) {
+				pageNum = num;
+				initCommodity();
+			}
+		});
+		//biddingRoom(commo.pId)
+		function biddingRoom(pId) {
+			layer.open({
+				type : 2,
+				content : "/openbiddingRoom?pId=" + pId,
+				area : [ "70%", "90%" ],
+				anim : 3
+			})
+		}
+		function recorddetails(pId) {
+			layer.open({
+				type : 2,
+				content : "/openPaiRecord?pId=" + pId,
+				area : [ "70%", "90%" ],
+				anim : 3
+			})
+		}
+
+		function remind() {
+			layer.alert("提醒成功! ", {
+				icon : 1,
+				title : "消息推送..."
+			});
+
+		}
+
+		function stopPai(pId) {
+			layer.confirm("确定终止并下架拍品吗 ?", {
+				icon : 3,
+				title : '提示'
+			}, function(index) {
+				$.get("/paipai/Administrator/stopPai", {
+					"pId" : pId
+				}, function(data) {
+					if (data == 'ok') {
+						layer.alert("成功下架", {
+							icon : 1
+						});
+						initCommodity();
+					} else {
+						layer.alert(data, {
+							icon : 5
+						})
+					}
+				})
+
+				layer.close(index);
+			})
+
+		}
+		//selectEvent()
+		function selectEvent() {
+
+			var type = $('#type').val();
+			app.selectState = type;
+			initCommodity();
+
+		}
+		//日期控制
+		$(function() {
+
+			$('#endTime').blur(function() {
+				if(app.startTime==''||app.endTime==''){
+					layer.alert('起止日期不能为空 ! ')
+					return;
+				}
+				$.get("/paipai/Administrator/findCommodityByTime", {
+					"startTime" : app.startTime,
+					"endTime" : app.endTime
+				}, function(data) {
+					app.commoditydatas = data.list;
+				})
+
+			})
+
+		});
+	</script>
+</body>
+</html>

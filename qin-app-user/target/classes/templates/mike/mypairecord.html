@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>一拍网</title>
+<link rel="stylesheet" th:href="@{/moon/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/icon/css/font-awesome.min.css}" />
+
+<style type="text/css">
+#p-name {
+	width:280px;
+	height:80px;
+	color:#4D4D4D;
+	font-size:16px
+}
+#img:hover{
+		transition: all 1s;
+	transform: scale(1.1);
+}
+th {
+	text-align:center;
+}
+</style>
+
+
+</head>
+<body class="bg-b">
+	<div class="container-fluid border divo" id="app">
+		<div class="row ">
+			<div class="col text-center  text-white shadow h3" 
+				style="background: #17A2B8;height:60px;line-height:60px;color:#FFF">我的拍卖记录</div>
+		</div>
+
+		<div class="divt border mt-5">
+			<table class="table table-lg text-center  table-striped ">
+				<tr>
+					<th>商品编号</th>
+					<th>商品详情</th>
+					<th>商品名称</th>
+					<th>出价金额</th>
+					<th>出价时间</th>
+					<th>拍卖是否成功</th>					
+				</tr>
+				<tr v-for="record in recorddata">
+					<td >{{record.pId}}</td>
+					<td><img :src="'http://127.0.0.1/img/'+record.img" style="width:80px;height:80px; " id='img' class="img-responsive
+												img-rounded" ></td>
+					<td style="width: 300px"><a :href="'/paipai/Commodity/description?pId='+record.pId"
+												target="_blank" class="">{{record.pName}}</a></td>
+					<td  style="color:#FFAA00;font-weight:bold">{{record.paiPrice}}</td>
+					<td >{{record.paiTime |filterTime}}</td>
+					<td v-if="record.ispai==4"><i class="fa fa-check" style="color:#32A478">成功拍得</i></td>	
+					<td v-if="record.ispai==1"><i class="fa fa-close" >未拍得</i></td>	
+				</tr>
+			</table>
+		</div>
+	</div>
+	<!-- js -->
+	<script th:src="@{/moon/js/jquery.js}"></script>
+	<script th:src="@{/moon/js/vue.js}"></script>
+	<script th:src="@{/layer/layer.js}"></script>
+	<script th:src="@{/moon/js/jquery.time.js}"></script>
+	<script th:inline="javascript">
+	/* 向后端发送请求获取对应的数据 */
+	var app = new Vue({
+		el:"#app",
+		data:{
+			recorddata:[]
+	
+		},
+		filters : {
+			filterTime : function(time) {
+				return $.msfmt.todate(time, true, 8);
+			},
+			filterState :function(state){
+				
+				if(state==1)
+					return '未拍得' ;
+				
+				if (state==4)
+					return '成功拍得';
+				else
+					return '其他';
+			}
+		}
+	
+		
+		
+	})
+	showPaiRecord();
+	function showPaiRecord(){
+		$.get("/paipai/Record/showPaiData",{},function(data){
+					app.recorddata=data;
+		},"json")
+	}
+	</script>
+</body>
+</html>

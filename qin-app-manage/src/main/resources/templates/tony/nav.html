@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>一拍网</title>
+<link rel="stylesheet" th:href="@{/moon/css/bootstrap.css}" />
+<link rel="stylesheet" th:href="@{/icon/css/font-awesome.min.css}" />
+</head>
+<body class="bg-b">
+	<div class="container" th:fragment="mynav">
+		<div class="row " style="height: 75px">
+			<div class="col-md-4 ">
+				<a href="/"><img alt="找不到"
+					th:src="@{http://127.0.0.1/img/LOGO.png}" class=" mr-3"
+					style="height: 88px" title="点击返回首页"></a>
+			</div>
+			<div class="col-md-3 ">
+				<img alt="" src="">
+			</div>
+			<div class="col-md-5 ">
+
+				<div class="nologin-info mt-5" style="float: right">
+
+					<a href="/test" class="shop-test btn btn-sm  btn-outline-info">进入测试版</a>&nbsp;&nbsp;
+					<a class="shop-official btn btn-sm  btn-outline-info" href="#">拍卖企业登录</a>
+					&nbsp;&nbsp;&nbsp;
+					<!-- 非登录状态时 -->
+
+					<a th:if="${session.loginname}==null" href="/login"
+						class="btn btn-sm  btn-outline-info">管理员登录</a>
+
+					<!-- 登录状态时 -->
+					<span th:if="${session.loginname}!=null"> <i
+						class='fa fa-user-circle fa-lg'></i> <a href="/goCenter"
+						class="btn btn-sm btn-outline-primary" style="font-size: 16px"
+						th:text="${session.loginname}"></a> &nbsp;&nbsp; <a
+						class="btn btn-sm btn-outline-danger"
+						href="javascript:;" onclick='loginOut();'>注销</a>
+					</span>
+				</div>
+			</div>
+		</div>
+		<hr>
+
+	</div>
+	<!-- js -->
+	<script th:src="@{/moon/js/jquery.js}"></script>
+	<script th:src="@{/moon/js/vue.js}"></script>
+	<script th:src="@{/layer/layer.js}"></script>
+
+	<script th:inline="javascript">
+	
+		//Window.loginOut=loginOut;
+
+	</script>
+</body>
+</html>

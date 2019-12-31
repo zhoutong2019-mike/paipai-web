@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>一拍网</title>
+<!-- <link rel="stylesheet" th:href="@{/moon/css/bootstrap.css}" /> -->
+<link rel="stylesheet" th:href="@{/moon/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/icon/css/font-awesome.min.css}" />
+
+<style type="text/css">
+li {
+	margin-left: 50px;
+}
+
+.divo {
+	height: 800px;
+}
+</style>
+
+
+</head>
+<body class="bg-b">
+	<div class="container-fluid border divo" id="app">
+		<div class="row ">
+			<div class="col text-center  text-white shadow h3"
+				style="background: #80B9F3; height: 60px; line-height: 60px; color: #FFF">我的拍卖</div>
+		</div>
+
+
+
+		<!-- 订单中心 -->
+		<div class="tab-pane" id="myorder">
+			<ul class="nav nav-tabs">
+				<li class="active tab-li"><a href="#allorder"
+					onclick="initCommodity();" data-toggle="tab">全部拍品 </a></li>
+				<li class="tab-li"><a href="#successorder"
+					onclick="initSuccessOrder();"
+					data-toggle="tab">正在拍卖 </a></li>
+				<li class="tab-li"><a href="#readyorder"
+					onclick="initnoPayOrder();" data-toggle="tab">已拍卖 </a></li>
+				<li class="tab-li"><a href="#failorder"
+					onclick="initCancelOrder();" data-toggle="tab">未拍卖 </a></li>
+			</ul>
+			<div class="form-content">
+				<div class="tab-content">
+					<div class="tab-pane active" id="allorder">
+						<div class="col-md-12  col-sm-12 col-xs-12">
+							<div class="panel panel-info">
+								<div class="panel-heading">
+									<h3 class="panel-title">全部拍品</h3>
+								</div>
+								<div class="panel-body" style="overflow-x: scroll;"
+									id="allorderDetail">
+									<table class="table " id="tb-allorder">
+										<tr>
+											<th>拍品编号</th>
+											<th>拍品名称</th>
+											<th>拍品详情</th>
+											<th>最新价格</th>
+											<th>发布时间</th>
+											<th>状态</th>
+											<th>操作</th>
+										</tr>
+										<tr v-for="order in orderdatas">
+											<td>{{order.pId}}</td>
+											<td style="width: 300px"><a
+												:href="'/paipai/Commodity/description?pId='+order.pId"
+												target="_blank" class="">{{order.pName}}</a></td>
+											<td><img alt="no exist !" :src="'http://127.0.0.1/img/'+order.img"
+												class="img-responsive
+												img-rounded"
+												style="width: 87px; height: 87px"></td>
+											<td>￥{{order.lastPrice==null?order.firstPrice:order.lastPrice}}</td>
+											<td>{{order.publishTime==null?"暂未发布" :order.publishTime|filterTime}}</td>
+											<td>{{order.state|filterState}}</td>
+											<td v-if="order.state==0"><button
+													class="btn btn-warning" @click="pushThis(order.pId)">开始发布</button><br><br>
+												 <br> 
+												<!-- <i class="fa fa-clock-o" aria-hidden="true"></i> --><span></span></td>
+											<td v-if="order.state==1">
+											<i class="fa fa-list-alt "  @click="orderdetails(order.pId)" title="点击查看拍卖详情">拍卖记录</i><br>
+											<i class="fa fa-clock-o" aria-hidden="true">剩余1天23分 40秒</i>
+											</td>
+											<td v-if="order.state==2">
+											<i class="fa fa-list-alt "  @click="orderdetails(order.pId)" title="点击查看拍卖详情">拍卖记录</i><br>
+											<i class="fa fa-clock-o" aria-hidden="true">等待付款</i>
+											</td>
+											<td v-if="order.state==3">
+											<button class="btn btn-danger" onclick="deleteby(this)">删除</button><br><br>
+											<i class="fa fa-list-alt "  @click="orderdetails(order.pId)" title="点击查看拍卖详情">拍卖记录</i><br>
+											</td>											
+										</tr>
+
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane" id="successorder">
+						<div class="col-md-12  col-sm-12 col-xs-12">
+							<div class="panel panel-info">
+								<div class="panel-heading">
+									<h3 class="panel-title">正在拍卖</h3>
+								</div>
+								<div class="panel-body" id="successorderDetail"
+									style="overflow-x: scroll;">
+									<table class="table " id="tb-allorder">
+										<tr>
+											<th>拍品编号</th>
+											<th>拍品名称</th>
+											<th>拍品详情</th>
+											<th>最新价格</th>
+											<th>发布时间</th>
+											<th>状态</th>
+											<th>操作</th>
+										</tr>
+									<!-- 	<tr v-for="order in sucessdata">
+											<td>{{order.id}}</td>
+											<td style="width: 300px"><a
+												:href="'/paipai/Commodity/description?pId='+order.pId"
+												target="_blank" class="">{{order.pName}}</a></td>
+											<td><img alt="no exist !" :src="'http://127.0.0.1/img/'+order.img"
+												class="img-responsive
+												img-rounded"
+												style="width: 87px; height: 87px"></td>
+											<td>￥{{order.paiPrice}}</td>
+											<td>{{order.paiTime|filterTime}}</td>
+											<td>{{order.ispay|filterState}}</td>
+											<td v-if="order.ispay==0"><button
+													class="btn btn-warning" @click="alipay(order.id,order.pId)">前往支付</button><br><br>
+												<button class="btn btn-danger" onclick="closeOrder()">取消订单</button>
+												<br> <br> <i class="fa fa-clock-o"
+												aria-hidden="true"></i><span>剩余支付时间10小时20分钟</span></td>
+											<td v-else><button class="btn btn-danger" onclick="deleteby(this)">删除</button><br><br>
+											<i class="fa fa-list-alt "  @click="orderdetails(order.id)" title="点击查看订单详情">订单详情</i></td>
+										</tr> -->
+
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane" id="readyorder">
+						<div class="col-md-12  col-sm-12 col-xs-12">
+							<div class="panel panel-info">
+								<div class="panel-heading">
+									<h3 class="panel-title">已拍卖</h3>
+								</div>
+								<div class="panel-body" id="readyorderDetail"
+									style="overflow-x: scroll;">
+									<table class="table " id="tb-allorder">
+										<tr>
+											<th>正在开发.......</th>
+											<!-- <th>商品名称</th>
+											<th>商品详情</th>
+											<th>订单价格</th>
+											<th>订单时间</th>
+											<th>状态</th>
+											<th>操作</th> -->
+										</tr>
+										<!-- <tr v-for="order in nopaydata">
+											<td>{{order.id}}</td>
+											<td style="width: 300px"><a
+												:href="'/paipai/Commodity/description?pId='+order.pId"
+												target="_blank" class="">{{order.pName}}</a></td>
+											<td><img alt="no exist !" :src="'http://127.0.0.1/img/'+order.img"
+												class="img-responsive
+												img-rounded"
+												style="width: 87px; height: 87px"></td>
+											<td>￥{{order.paiPrice}}</td>
+											<td>{{order.paiTime|filterTime}}</td>
+											<td>{{order.ispay|filterState}}</td>
+											<td v-if="order.ispay==0"><button
+													class="btn btn-warning" @click="alipay(order.id,order.pId)">前往支付</button><br><br>
+												<button class="btn btn-danger" onclick="closeOrder()">取消订单</button>
+												<br> <br> <i class="fa fa-clock-o"
+												aria-hidden="true"></i><span>剩余支付时间10小时20分钟</span></td>
+											<td v-else><button class="btn btn-danger" onclick="deleteby(this)">删除</button></td>
+										</tr> -->
+
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane" id="failorder">
+						<div class="col-md-12  col-sm-12 col-xs-12">
+							<div class="panel panel-info">
+								<div class="panel-heading">
+									<h3 class="panel-title">未拍卖</h3>
+								</div>
+								<div class="panel-body" id="failorderDetail"
+									style="overflow-x: scroll;">
+									<table class="table " id="tb-allorder">
+										<tr>
+											<th>正在开发.............</th>
+										<!-- 	<th>商品名称</th>
+											<th>商品详情</th>
+											<th>订单价格</th>
+											<th>订单时间</th>
+											<th>状态</th>
+											<th>操作</th> -->
+										</tr>
+										<!-- <tr v-for="order in canceldata">
+											<td>{{order.id}}</td>
+											<td style="width: 300px"><a
+												:href="'/paipai/Commodity/description?pId='+order.pId"
+												target="_blank" class="">{{order.pName}}</a></td>
+											<td><img alt="no exist !" :src="'http://127.0.0.1/img/'+order.img"
+												class="img-responsive
+												img-rounded"
+												style="width: 87px; height: 87px"></td>
+											<td>￥{{order.paiPrice}}</td>
+											<td>{{order.paiTime|filterTime}}</td>
+											<td>{{order.ispay|filterState}}</td>
+											<td v-if="order.ispay==0"><button
+													class="btn btn-warning" @click="alipay(order.id,order.pId)">前往支付</button><br><br>
+												<button class="btn btn-danger" onclick="closeOrder()">取消订单</button>
+												<br> <br> <i class="fa fa-clock-o"
+												aria-hidden="true"></i><span>剩余支付时间10小时20分钟</span></td>
+											<td v-else><button class="btn btn-danger deletebtn"
+													onclick="deleteby(this)">删除</button></td>
+										</tr>
+ -->
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!--订单选项卡结束  -->
+	</div>
+	<!-- js -->
+	<script th:src="@{/moon/js/jquery.js}"></script>
+	<script th:src="@{/moon/js/vue.js}"></script>
+	<script th:src="@{/moon/js/bootstrap.js}"></script>
+	<script th:src="@{/layer/layer.js}"></script>
+	<script th:src="@{/moon/js/jquery.time.js}"></script>
+	<script th:inline="javascript">
+		/* 页面加载发送请求查询订单信息 */
+		initCommodity();
+		/* 定义vue */
+		var app = new Vue({
+			el : "#app",
+			data : {
+				orderdatas : [],
+				sucessdata : [],
+				nopaydata : [],
+				canceldata : []
+			},
+			filters : {
+				filterState : function(state) {
+					if (state == 0)
+						return "未发布";
+					else if (state == 1)
+						return "正在拍卖";
+					else if (state == 2)
+						return "拍卖失败";
+					else
+						return "拍出成功!";
+				},
+				filterTime : function(time) {
+					if(time!="暂未发布")
+						return $.msfmt.todate(time, true, 8);
+					else
+						return "暂未发布" ;
+				}
+
+			}
+		})
+		
+		function pushThis(pId) {
+			layer.confirm('确认发布吗?',{icon:3,title:'提示'},function(index){
+				
+				$.get("/paipai/Commodity/pushComm",{pId:pId},
+						function(data){
+					if(data=='ok'){
+						layer.msg('发布成功 !', {icon: 1});
+						initCommodity();
+					}
+					else
+						layer.msg(data,{icon: 2});
+					
+				});
+				layer.close(index);
+			})
+
+			
+		}
+		
+		
+		
+		
+		
+		function initCommodity() {
+			$.get("/paipai/Commodity/initCommodity", {}, function(data) {
+				app.orderdatas = data;
+			}, "json")
+		}
+
+		function initSuccessCommodity() {
+			$.get("/paipai/Record/initSuccessCommodity", {}, function(data) {
+				app.sucessdata = data;
+			}, "json")
+		}
+
+		function initnoPayOrder() {
+			$.get("/paipai/Record/initnoPayOrder", {}, function(data) {
+				app.nopaydata = data;
+			}, "json")
+		}
+
+		function initCancelOrder() {
+			$.get("/paipai/Record/initCancelOrder", {}, function(data) {
+				app.canceldata = data;
+			}, "json")
+		}
+
+		
+		function alipay(orderId,pId) {
+			layer.open({
+				type:2,
+				content : "/openOrderMsgPage?orderId="+orderId+"&pId="+pId,
+				area : ["70%","90%"],
+				anim :3,
+				title :'确认订单信息'
+			})
+			
+		}
+		/* 用户支付 */
+		/* function alipay(pId) {
+			layer.confirm("确定支付吗?", {
+				icon : 6,
+				title : "提示"
+			}, function(index) {
+				layer.msg('扣款中...');
+				$.post("/paipai/Record/alipay", {
+					"pId" : pId
+				}, function(data) {
+					if (data == 'ok') {
+						setTimeout(function() {
+							layer.msg("支付成功!", {
+								icon : 1
+							});
+						}, 2000);
+						setTimeout(function() {
+							location.reload();
+						}, 4000);
+					} else {
+						layer.alert(data);
+					}
+				}, "text")
+				layer.close(index);
+			})
+		}
+ */
+		/* 删除元素 */
+		function deleteby(obj) {
+			layer.confirm('确定删除?',{icon:0,title:'提示'},function(index){
+				obj.parentNode.parentNode.remove();
+				layer.msg("删除成功!", {
+					icon : 1
+				});
+				layer.close(index);
+			})
+		}
+ 
+ 	/*  点击拍卖详情时候*/
+ 		function orderdetails(id){
+ 			layer.open({
+				type:2,
+ 				content : "/openPaiRecord?pId="+id,
+				area : ["70%","90%"],
+				anim :3
+			})	
+ 	}
+ 	
+	</script>
+</body>
+</html>

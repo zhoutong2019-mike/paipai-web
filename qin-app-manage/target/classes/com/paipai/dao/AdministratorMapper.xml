@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.paipai.dao.AdministratorMapper">
+  <resultMap id="BaseResultMap" type="com.paipai.entity.Administrator">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+  </resultMap>
+  <!--Administrator selectAdminByName(String username);  -->
+  
+  <select id="selectAdminByName" parameterType="String" resultMap="BaseResultMap">
+  	select  id,name,password from Administrator
+  	where name = #{value}
+  
+  </select>
+  
+  
+  
+  
+  
+  
+  
+  
+</mapper>

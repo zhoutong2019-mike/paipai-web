@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>一拍网</title>
+<!-- <link rel="stylesheet" th:href="@{/moon/css/bootstrap.css}" /> -->
+<link rel="stylesheet" th:href="@{/moon/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/icon/css/font-awesome.min.css}" />
+
+<style type="text/css">
+.divo {
+	height: 800px;
+}
+</style>
+
+
+</head>
+<body>
+	<div class="container-fluid border divo" id="app">
+		<div class="col-md-4 col-md-offset-4 ">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3>订单信息</h3>
+				</div>
+				<div class="panel-body">
+					<table
+						class="table table-bordered table-striped table-hover table-condensed">
+						<tr class="form-inline">
+							<td>订单编号 : {{orderdata.id}}</td>
+							<td>用户编号 : {{orderdata.uId}}</td>
+						</tr>
+						<tr class="form-inline">
+							<td>支付金额　：{{orderdata.paiPrice}}</td>
+							<td>支付时间   ：{{orderdata.payTime|filterTime}}</td>
+						</tr>
+						<tr　class="form-inline">
+							<td>商品编号  ： {{orderdata.cId}}</td>
+							<td>订单备注 ：: {{orderdata.mailRemarks}}</td>
+						</tr>
+						<tr class="form-inline">
+							<td>收货人姓名 : {{orderdata.mailName}} </td>
+							<td>收货人电话   :  {{orderdata.mailMobile}}</td>
+						</tr>
+					</table>
+				</div>
+				<div class="panel-footer　form-inline">
+				                             <span style="margin-left:50px">收货人地址 : {{orderdata.mailName}}</span><hr>
+				<span  ><em style="margin-left:40px;font-size:18px">订单总额 : </em><em style="color:#C9302C;font-size:20px">{{orderdata.paiPrice}}</em>元 (保证金已计算在内)</span>
+				
+				<button class="btn btn-success btn-lg" style="margin-left:450px" onclick="closelayer()">关闭</button></div>
+			</div>
+		</div>
+	</div>
+	<!-- js -->
+	<script th:src="@{/moon/js/jquery.js}"></script>
+	<script th:src="@{/moon/js/vue.js}"></script>
+	<script th:src="@{/moon/js/bootstrap.js}"></script>
+	<script th:src="@{/layer/layer.js}"></script>
+	<script th:src="@{/moon/js/jquery.time.js}"></script>
+	<script th:inline="javascript">
+		/* 定义vue */
+		var app = new Vue({
+			el:'#app',
+			data : {
+				orderdata:[]
+			},
+			filters : {
+				
+				filterTime : function(time) {
+					return $.msfmt.todate(time,true,8);
+				} 
+			}
+		})
+		/* 页面初始化时运行 */
+		var orderId = [[${orderId}]] ;
+		showOrderMsg();
+		function showOrderMsg() {
+			$.post("/paipai/Record/showOrderMsgTwo",{
+				"orderId" :orderId
+			},function(data){
+				app.orderdata = data ;
+			})
+			
+		}
+
+		function closelayer(){
+			window.parent.layer.closeAll();
+		}
+		
+
+	</script>
+</body>
+</html>

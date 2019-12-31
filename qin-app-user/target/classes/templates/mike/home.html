@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>一拍网</title>
+<link rel="stylesheet" th:href="@{/moon/css/bootstrap.css}" />
+<link rel="stylesheet" th:href="@{/icon/css/font-awesome.min.css}" />
+<link rel="stylesheet" th:href="@{/menu/metisMenu.css}" />
+<link rel="stylesheet" th:href="@{/menu/vertical.css}" />
+<style type="text/css">
+</style>
+</head>
+<body>
+	<div th:replace="mike/nav :: mynav"></div>
+	<div class="container-fluid h-100" style="overflow: hidden;">
+		<!-- 标题栏 -->
+
+		<div class="row" style="height: 98%; width: 100%">
+			<!-- 左侧 -->
+			<div class="col-sm-2">
+				<div class="sidebar-nav mt-1">
+					<div class="metismenu">
+						<ul>
+							<li><a href="javascript:" class="has-arrow">商品列表</a>
+								<ul>
+									<li><a href="javascript:" class="has-arrow"
+										work="commodity" onclick="openWork(this);">商品主页</a></li>
+									<li><a href="javascript:" class="has-arrow" work="luxury"
+										onclick="openWork(this);">奢侈名品</a></li>
+									<li><a href="javascript:" class="has-arrow"
+										work="ceramics" onclick="openWork(this);">紫砂陶瓷</a></li>
+									<li><a href="javascript:" class="has-arrow" work="artwork"
+										onclick="openWork(this);">艺术精品</a></li>
+									<li><a href="javascript:" class="has-arrow"
+										work="hetianyu" onclick="openWork(this);">和田玉</a></li>
+								</ul></li>
+
+
+							<li><a href="javascript:" class="has-arrow">个人中心</a>
+								<ul>
+									<li><a href="javascript:" class="has-arrow"
+										work="usercenter" onclick="openWork(this);">个人资料</a></li>
+									<li><a href="javascript:" class="has-arrow" work="wallet"
+										onclick="openWork(this);">我的钱包</a></li>
+									<li><a href="javascript:" class="has-arrow" work="order"
+										onclick="openWork(this);">我的订单</a></li>
+									<li><a href="javascript:" class="has-arrow" work="mypairecord"
+										onclick="openWork(this);">竞拍记录</a></li>
+								</ul>
+							</li>
+							<li><a href="javascript:" class="has-arrow">卖家专区</a>
+								<ul>
+									<li><a href="javascript:" class="has-arrow" work="pushpai"
+										onclick="openWork(this);">发布拍卖</a></li>
+									<li><a href="javascript:" class="has-arrow" work="seller_record"
+										onclick="openWork(this);">我的拍卖</a></li>
+								</ul>
+							</li>
+							
+							<li><a href="javascript:" class="has-arrow">扩展功能</a>
+								<ul>
+									<li><a href="javascript:" class="has-arrow" work="two"
+										onclick="openWork(this);">天气预报</a></li>
+									<li><a href="javascript:" class="has-arrow" work="three"
+										onclick="openWork(this);">菜谱</a></li>
+								</ul>
+							</li>							
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- 工作区 -->
+			<div class="col-sm-10">
+				<div id="work" class="h-100" style="margin-right: -32px;">
+					<iframe src="/openWork/welcome" frameborder="0" width="100%"
+						height="100%"></iframe>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- js -->
+	<script th:src="@{/moon/js/jquery.js}"></script>
+	<script th:src="@{/layer/layer.js}"></script>
+	<script th:src="@{/menu/metisMenu.js}"></script>
+	<script th:src="@{/moon/js/popper.js}"></script>
+	<script th:src="@{/moon/js/bootstrap.js}"></script>
+	<script th:inline="javascript">
+		//metisMenu
+		$(".metismenu").metisMenu();
+
+		//openWork
+		function openWork(obj) {
+			var iframe = "<iframe src='/openWork/" + $(obj).attr("work")
+					+ "' frameborder=0 width=100% height=100%></iframe>";
+			$("#work").html(iframe);
+		}
+
+		//showCenter
+		function showCenter() {
+			//
+		}
+		//showMyMsg()
+		function showMyMsg() {
+			layer.open({
+				type : 2,
+				content : "/goCenter",
+				area : [ "75%", "90%" ],
+				anim : 2
+			});
+		}
+		//logout
+		function logout() {
+			//
+		}
+	</script>
+</body>
+</html>

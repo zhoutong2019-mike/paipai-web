@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.paipai.dao.UserMapper">
+  <resultMap id="BaseResultMap" type="com.paipai.entity.User">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="addr" jdbcType="VARCHAR" property="addr" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="balance" jdbcType="DOUBLE" property="balance" />
+    <result column="state" jdbcType="TINYINT" property="state" />
+  </resultMap>
+
+	<!--User selectUserByName(String username); -->
+	<select id="selectUserByName" parameterType="string" resultMap="BaseResultMap">
+		select * from user where username = #{value}
+	</select>
+
+	<!-- int updateByUSER(User user); -->
+	<update id="updateByUSER" parameterType="com.paipai.entity.User">
+		update user
+		<set>
+			<if test="username != ''">
+				mobile = #{mobile},
+			</if>
+			<if test="password != ''">
+				password = #{password},
+			</if>
+			<if test="email != ''">
+				email = #{email},
+			</if>
+			<if test="addr != ''">
+				addr = #{addr}
+			</if>
+		</set>
+		where username= #{username}
+	</update>
+
+	<!--Double selectBalanceByUid(Integer uId); -->
+
+	<select id="selectBalanceByUid" parameterType="Integer" resultType="Double">
+		select balance from user where id = #{value};
+
+	</select>
+	
+	<!-- int updateBalanceByUid(Integer uId); -->
+	
+	<update id="updateBalanceByUid">
+		update user set balance = #{newBalance} 
+		where  id = #{uId}
+	</update>
+	<!-- int updateBalanceByUidAndMargin(@Param("uid")Integer uid,@Param("margin")Double margin); -->
+	
+	<update id="updateBalanceByUidAndMargin">
+		UPDATE `user` SET balance = balance + #{margin} WHERE id = #{uid}
+	</update>
+	
+	<!-- 	int updateBalanceByUnameAndMargin(@Param("sellerName")String sellerName,@Param("addCash") Double addCash); -->
+
+	<update id="updateBalanceByUnameAndMargin">
+		UPDATE `user` SET balance = balance + #{addCash} WHERE username = #{sellerName}
+	</update>
+	
+	<!-- int updateUserStateById(Integer id); -->
+	<update	id="updateUserStateById"  parameterType="Integer" >
+		update `user` set state= 0  where id = #{id}
+	</update>
+	<!-- int updateUserStateToOneById(Integer id); -->
+	<update	id="updateUserStateToOneById"  parameterType="Integer" >
+		update `user` set state= 1  where id = #{id}
+	</update>
+	
+	<!--  List<User> selectUserByNameAndLike(String username);-->
+	<select id="selectUserByNameAndLike" parameterType="String" resultMap="BaseResultMap">
+		select * from `user` where username like concat('%',#{value},'%')
+	</select>
+	
+	<!-- List<User> selectUserByCreateTime(@Param("startDay") String startDay, @Param("endDay") String endDay); -->
+	<select id="selectUserByCreateTime" resultMap="BaseResultMap" >
+	select * from `user` 
+	where create_time between #{startDay} and #{endDay}
+	</select>
+	
+</mapper>

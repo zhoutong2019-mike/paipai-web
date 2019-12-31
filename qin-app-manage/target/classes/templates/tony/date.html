@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>MOON</title>
+<link rel="stylesheet" th:href="@{/moon/css/bootstrap.css}" />
+<link rel="stylesheet" th:href="@{/icon/css/font-awesome.min.css}" />
+<link rel="stylesheet" th:href="@{/date/flatpickr.css}" />
+</head>
+<body class="bg-b">
+	<div class="container-fluid" id="app">
+		<div class="row">
+			<div class="col text-center bg-danger text-white shadow">日期参数传递</div>
+		</div>
+		<div class="mt-3 form-inline">
+			日期 ： <input type="text" class="form-control form-control-sm"
+				placeholder="_请输入日期" v-model="date" id="date">
+			<button class="btn btn-info  btn-outline btn-sm ml-3"
+				@click="commitDate()">提交</button>
+		</div>
+	</div>
+	<!-- js -->
+	<script th:src="@{/moon/js/jquery.js}"></script>
+	<script th:src="@{/moon/js/vue.js}"></script>
+	<script th:src="@{/layer/layer.js}"></script>
+	<script th:src="@{/date/flatpickr.js}"></script>
+	<script th:inline="javascript">
+		//
+		var app = new Vue({
+			el : "#app",
+			data : {
+				date : ""
+			},
+			methods : {
+				commitDate : function() {
+					$.get("/commitDate", {
+						"date" : app.date
+					}, function(data) {
+						layer.msg(data);
+					});
+				}
+			},
+
+		});
+		
+		$("#date").flatpickr();
+		
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>MOON</title>
+<link rel="stylesheet" th:href="@{/moon/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/icon/css/font-awesome.min.css}" />
+</head>
+<body class="bg-a">
+	<div class="container-fluid" id="app">
+		<div class="row">
+			<div class="col text-center bg-warning text-white shadow">使用script跨域访问菜谱</div>
+		</div>
+		<div  style="margin-top:30px">
+			<button class="btn btn-info" onclick="showCASH()">获取菜谱</button>
+
+		</div>
+
+		<div class="col-md-12  " style="margin-top:30px">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<h3>菜谱信息</h3>
+				</div>
+				<div class="panel-body">
+					<table class="table table-bordered table-striped  table-condensed">
+						<tr>
+							<th>菜名</th>
+							<th>标签</th>
+							<th>说明</th>
+							<th>主原料</th>
+							<th>配料</th>
+						</tr>
+						<tr v-for="c in cashdata">
+							<td >{{c.title}}</td>
+							<td >{{c.tags}}</td>
+							<td >{{c.imtro}}</td>
+							<td >{{c.ingredients}}</td>
+							<td >{{c.burden}}</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- js -->
+	<script th:src="@{/moon/js/jquery.js}"></script>
+	<script th:src="@{/moon/js/vue.js}"></script>
+	<script th:src="@{/layer/layer.js}"></script>
+	<script th:inline="javascript">
+		//
+		var app = new Vue({
+			el:"#app",
+			data:{
+				cashdata:[]
+			}
+		});
+		var showCASH = function() {
+			var s = '<script src="http://apis.juhe.cn/cook/query?key=&menu=%E8%A5%BF%E7%BA%A2%E6%9F%BF&rn=10&pn=3&key=7b9d61668ea6f3188ae732f7addf256a&callback=success"><\/script>';
+			$('body').append(s);
+		}
+		var success = function(datas) {
+			app.cashdata=datas.result.data;
+		}
+	</script>
+</body>
+</html>

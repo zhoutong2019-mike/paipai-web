@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>一拍网</title>
+<link rel="stylesheet" th:href="@{/moon/css/bootstrap.css}" />
+<link rel="stylesheet" th:href="@{/icon/css/font-awesome.min.css}" />
+<link rel="stylesheet" th:href="@{/edit/wangEditor.css}" />
+
+<style type="text/css">
+	#checkCode {
+		font-family: Arial;
+		font-style: italic;
+		font-weight: bold;
+		border: 0;
+		letter-spacing: 2px;
+		color: blue;
+	}
+
+</style>
+
+</head>
+<body class="bg-b" onkeydown="loginPress()">
+	<!-- 引入导航页面 -->
+	<div th:replace="tony/nav :: mynav"></div>
+
+	<div class="col-md-3 col-md-push-4" style="margin: 50px auto;">
+		<div class="panel panel-default">
+			<div class="panel-heading"
+				style="text-align: center; border-top: 1px #2F4F4F solid; padding-top: 10px">
+				<h2>Administrator Background System</h2>
+			</div>
+			<div class="panel-body panel-success" style="margin-top: 30px;">
+				<form >
+					<div class="form-group">
+						<label for="username">username</label> <input type="text"
+							class="form-control"  placeholder="name" id="login-name" name="username">
+					</div>
+					<div class="form-group">
+						<label for="password">password</label> <input type="password"
+							class="form-control"  placeholder="password" id="login-pwd" name="password">
+					</div>
+					<!-- 验证码开始 -->
+		<!-- 				<label for="input" class="col-sm-4 control-label">验证码</label>
+						<div class="col-md-4 form-group ">
+						<div class="form-control"style="float:right">
+							<input type="text" id="input" class="form-control"> 
+							<input type="button" id="checkCode" onclick="createCode()" value="1234" />
+						   </div>
+						</div> -->
+					<!-- 验证码结束 -->
+					<div class="mt-2">
+						<input type="button" value="login"
+							class="btn btn-success btn-block" onclick="login()">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- js -->
+	<script th:src="@{/moon/js/jquery.js}"></script>
+	<script th:src="@{/moon/js/vue.js}"></script>
+	<script th:src="@{/layer/layer.js}"></script>
+	<script th:src="@{/edit/wangEditor.js}"></script>
+	<script th:inline="javascript">
+		//
+		var num = 3;
+		function JumpToURL(){  
+			  location='/';  
+			}  
+		function alertNum(){ 
+			  layer.msg(num--+'s后跳转主页');
+			  if(num==0)
+				  return;
+			}  
+		
+		
+		
+		
+		  function login() {
+ 			    //校验验证码
+ 			   //var flag_code = false;
+          	 var login_name = $('#login-name').val();
+        	 var login_pwd = $('#login-pwd').val();
+           	$.post("/paipai/Administrator/loginIn",{"username":login_name,"password":login_pwd},
+           			function(data){
+           		if(data=="ok"){
+           			layer.msg('登录成功! ');
+           			setTimeout('JumpToURL()',3000); 
+           			setInterval('alertNum()',1000)
+           		}else{
+           			layer.msg(data);
+           		}
+           	})
+		   }
+		   
+		  function loginPress (){
+			  var code = event.keyCode;
+			  if(code==13){
+				  login();
+			  }
+		   }
+	</script>
+</body>
+</html>

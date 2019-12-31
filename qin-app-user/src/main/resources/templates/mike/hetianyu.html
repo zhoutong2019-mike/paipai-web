@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>一拍网</title>
+<link rel="stylesheet" th:href="@{/moon/css/bootstrap.css}" />
+<link rel="stylesheet" th:href="@{/moon/css/commodity.css}" />
+<link rel="stylesheet" th:href="@{/icon/css/font-awesome.min.css}" />
+<style type="text/css">
+
+</style>
+</head>
+<body class="bg-d">
+	<div class="col-md-12 " id="app">
+		<div class="row">
+			<div class="col text-center bg-danger text-white h3 shadow">和田玉会场</div>
+		</div>
+
+		<!-- 数据列表 -->
+	<div th:replace="mike/artwork :: mydata"  ></div>
+	<!-- js -->
+	<script th:src="@{/moon/js/jquery.js}"></script>
+	<script th:src="@{/moon/js/vue.js}"></script>
+	<script th:src="@{/layer/layer.js}"></script>
+	<script th:src="@{/moon/js/jquery.time.js}"></script>
+	<script th:src="@{/page/jqpaginator.js}"></script>
+	<script th:inline="javascript">
+		//app
+		var pageNum = 1;
+		var app = new Vue({
+			el : "#app",
+			data : {
+				commoditydata : [],
+				keyword : ""
+			},
+			methods : {
+				showdata : function() {
+					$.get("/paipai/Commodity/findHetian", {
+						pageNum : pageNum,
+						pageSize : 8
+					}, function(data) {
+						app.commoditydata = data.list;
+						//动态改变pager:totalPages
+						$("#pager").jqPaginator("option", {
+							totalPages : data.pagecount
+						});
+					});
+				}
+
+			},
+			filters : {
+				
+				filterNum : function (num,state){
+					if(state==0)
+						return "暂未开始出价" ;
+					else 
+						return num+'次出价';
+				}
+			}
+
+
+		});
+
+		//分页插件
+		$('#pager').jqPaginator({
+			totalPages : 1,
+			currentPage : 1,
+			onPageChange : function(num, type) {
+				pageNum = num;
+				app.showdata();
+			}
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>一拍网-注册</title>
+<link rel="stylesheet" th:href="@{/moon/css/bootstrap.css}" />
+<link rel="stylesheet" th:href="@{/icon/css/font-awesome.min.css}" />
+<link rel="stylesheet" th:href="@{/edit/wangEditor.css}" />
+
+<style type="text/css">
+#checkCode {
+	font-family: Arial;
+	font-style: italic;
+	font-weight: bold;
+	border: 0;
+	letter-spacing: 2px;
+	color: blue;
+}
+</style>
+
+</head>
+<body class="bg-b" onkeydown="loginPress()">
+	<!-- 引入导航页面 -->
+	<div th:replace="mike/nav :: mynav"></div>
+
+	<div class="col-md-3 col-md-push-4" style="margin: 0 auto;" id="app">
+		<div class="panel panel-default">
+			<div class="panel-heading"
+				style="text-align: center; border-top: 1px #2F4F4F solid; padding-top: 50px">
+				<h2>regist</h2>
+			</div>
+			<div class="panel-body panel-success" style="margin-top: 30px;">
+				<form action="/paipai/User/logining" method="post" id="mylogin-form">
+					<div class="form-group">
+					<!-- 	<label for="username">username</label> --> <input type="text"
+							class="form-control" placeholder="username" id="username" v-model="username">
+					</div>
+					<div class="form-group">
+						<!-- <label for="password">password</label> --> <input type="text"
+							class="form-control" placeholder="password" id="password" v-model="password">
+					</div>
+					<div class="form-group">
+						<!-- <label for="password">password</label> --> <input type="text"
+							class="form-control" placeholder="password again" id="password" v-model="passwordTwo">
+					</div>
+					<div class="form-group">
+						<!-- <label for="mobile">mobile</label>  --><input type="text"
+							class="form-control" placeholder="mobile" id="mobile"  v-model="mobile">
+					</div>
+			<!-- 		<div class="form-group">
+						<label for="email">email</label> <input type="text"
+							class="form-control" placeholder="email" id="email" v-model="email">
+					</div> -->
+
+					<div class="mt-2">
+						<input type="button" value="regist"
+							class="btn btn-success btn-block" onclick="goRegist()" >
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="mt-3">&nbsp;</div>
+	</div>
+	<!-- js -->
+	<script th:src="@{/moon/js/jquery.js}"></script>
+	<script th:src="@{/moon/js/vue.js}"></script>
+	<script th:src="@{/layer/layer.js}"></script>
+	<script th:src="@{/edit/wangEditor.js}"></script>
+	<script th:inline="javascript">
+	//vue开始
+	var app = new Vue({
+		
+		el:"#app",
+		data:{
+			username : "",
+			password : "",
+			passwordTwo : "",
+			mobile : "",
+			email : ""
+			
+		}
+		
+	})
+	 function goRegist(){
+		$.post("/paipai/User/goRegist",{
+			username : app.username,
+			password : app.password,
+			passwordTwo : app.passwordTwo,
+			mobile : app.mobile,
+			email : app.email
+		},function(data){
+			if(data=="ok"){
+				layer.msg("注册成功,正跳转登录页面...")
+				setTimeout('JumpToUrl()',2000); 
+			}
+			else {
+				layer.msg(data);
+			}
+		})
+	} 
+	function JumpToUrl(){  
+		  location='/login';  
+		}  
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$(function() {
+			//1.ajax验证用户名是否存在
+			$('#username').blur(function() {
+				var username = $(this).val();
+
+				$.get("/paipai/User/isExist", {
+					"username" : username
+				}, function(data) {
+					if (data == "exist")
+						layer.msg('用户名已存在');
+				})
+			})
+
+		})
+		
+			 function loginPress (){
+			  var code = event.keyCode;
+			  if(code==13){
+				  goRegist();
+			  }
+		   }
+
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.paipai.dao.AddressMapper">
+  <resultMap id="BaseResultMap" type="com.paipai.entity.Address">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="a_id" jdbcType="INTEGER" property="aId" />
+    <result column="u_id" jdbcType="INTEGER" property="uId" />
+    <result column="addr" jdbcType="VARCHAR" property="addr" />
+    <result column="add_name" jdbcType="VARCHAR" property="addName" />
+    <result column="add_mobile" jdbcType="VARCHAR" property="addMobile" />
+  </resultMap>
+</mapper>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>一拍网</title>
+<link rel="stylesheet" th:href="@{/moon/css/bootstrap.css}" />
+<link rel="stylesheet" th:href="@{/moon/css/commodity.css}" />
+<link rel="stylesheet" th:href="@{/icon/css/font-awesome.min.css}" />
+<style type="text/css">
+</style>
+</head>
+<body class="bg-d">
+	<div class="col-md-12 " id="app">
+		<div class="row">
+			<div class="col text-center bg-danger text-white h3 shadow">艺术品会场</div>
+		</div>
+
+		<!-- 数据列表 -->
+		<div th:fragment="mydata">
+			<div class="mt-4 " id="res">
+				<ul class="list-unstyled list " style="left: 0px;">
+					<li class="item" v-for="com in commoditydata"><a
+						:href="'/paipai/Commodity/description?pId='+com.pId"
+						target="_blank"> <img alt="" :src="'http://127.0.0.1/img/'+com.img">
+					</a>
+						<div class="title">
+							<a :href="'/paipai/Commodity/description?pId='+com.pId">{{com.pName}}</a>
+						</div>
+						<div class="price">
+							<span class="span1">当前价</span><em class="price">￥{{com.lastPrice==null?com.firstPrice:com.lastPrice}}</em>
+						</div>
+						<div class="times">
+							{{com.accessNum|filterNum(com.state)}}<span class="span2"></span>
+						</div>
+						<div class="mydiv" v-if="com.state==1">
+							<a :href="'/paipai/Commodity/description?pId='+com.pId"
+								target="_blank"> <em class="btn btn-danger ml-5">马上抢拍&nbsp;&nbsp;&nbsp;&nbsp;<i
+									class="fa fa-gavel fa-lg"></i></em>
+							</a>
+						</div>
+						
+						<div class="mydiv" v-if="com.state==0">
+							<a :href="'/paipai/Commodity/description?pId='+com.pId"
+								target="_blank"> <em class="btn btn-warning ml-5">即将发布&nbsp;&nbsp;&nbsp;&nbsp;<i
+									class="fa fa-gavel fa-lg"></i></em>
+							</a>
+						</div>
+						<div class="mydiv" v-if="com.state>=2">
+							<a :href="'/paipai/Commodity/description?pId='+com.pId"
+								target="_blank"> <em class="btn  ml-5" style="background:#808080;color:#FFF">已结束&nbsp;&nbsp;&nbsp;&nbsp;<i
+									class="fa fa-gavel fa-lg"></i></em>
+							</a>
+						</div>
+						
+						
+						</li>
+
+				</ul>
+
+
+			</div>
+			<!--分页模块  -->
+			<div class="mt-5" style="clear: both;">&nbsp;</div>
+			<div class="col-md-4 offset-md-4 ">
+				<div id="pager" class="pagination pagination-sm"></div>
+			</div>
+			<br>
+			<hr>
+		</div>
+	</div>
+	<!-- js -->
+	<script th:src="@{/moon/js/jquery.js}"></script>
+	<script th:src="@{/moon/js/vue.js}"></script>
+	<script th:src="@{/layer/layer.js}"></script>
+	<script th:src="@{/moon/js/jquery.time.js}"></script>
+	<script th:src="@{/page/jqpaginator.js}"></script>
+	<script th:inline="javascript">
+		//app
+
+		var pageNum = 1;
+		var app = new Vue({
+			el : "#app",
+			data : {
+				commoditydata : [],
+				keyword : ""
+			},
+			methods : {
+				showdata : function() {
+					$.get("/paipai/Commodity/findArtwork", {
+						pageNum : pageNum,
+						pageSize : 8
+					}, function(data) {
+						app.commoditydata = data.list;
+						//动态改变pager:totalPages
+						$("#pager").jqPaginator("option", {
+							totalPages : data.pagecount
+						});
+					});
+				}
+
+			},
+			filters : {
+				
+				filterNum : function (num,state){
+					if(state==0)
+						return "暂未开始出价" ;
+					else 
+						return num+'次出价';
+				}
+			}
+
+		});
+
+		//分页插件
+		$('#pager').jqPaginator({
+			totalPages : 1,
+			currentPage : 1,
+			onPageChange : function(num, type) {
+				pageNum = num;
+				app.showdata();
+			}
+		});
+	</script>
+</body>
+</html>

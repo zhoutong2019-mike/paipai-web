@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.paipai.dao.CommodityMapper">
+  <resultMap id="BaseResultMap" type="com.paipai.entity.Commodity">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="p_id" jdbcType="INTEGER" property="pId" />
+    <result column="p_name" jdbcType="VARCHAR" property="pName" />
+    <result column="access_num" jdbcType="INTEGER" property="accessNum" />
+    <result column="img" jdbcType="VARCHAR" property="img" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="first_price" jdbcType="DOUBLE" property="firstPrice" />
+    <result column="last_price" jdbcType="DOUBLE" property="lastPrice" />
+    <result column="margin" jdbcType="DOUBLE" property="margin" />
+    <result column="price_step" jdbcType="INTEGER" property="priceStep" />
+    <result column="info" jdbcType="VARCHAR" property="info" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="seller_name" jdbcType="VARCHAR" property="sellerName" />
+    <result column="publish_time" jdbcType="TIMESTAMP" property="publishTime" />
+  </resultMap>
+
+	<!-- List&amp;amp;amp;amp;amp;amp;amp;amp;amp;lt;Commodity&amp;amp;amp;amp;amp;amp;amp;amp;amp;gt; selectByKw(String 
+		keyword); -->
+
+	<select id="selectByKw" parameterType="string" resultMap="BaseResultMap">
+		select * from commodity where p_name like concat('%',#{value},'%')
+	</select>
+
+	<!-- int selectCountByKw(String keyword); -->
+	<select id="selectCountByKw" parameterType="string" resultType="int">
+		select count(0) from commodity where p_name like concat('%',#{value},'%')
+	</select>
+
+	<!-- Integer selectStateByCId(Integer cId); -->
+	<select id="selectStateByCId" parameterType="Integer" resultType="Integer">
+		select state from commodity where p_id = #{value}
+	</select>
+
+	<!-- int updateLastpriceByPid(@Param("pId")Integer pId,@Param("biddingPrice") 
+		Double biddingPrice); -->
+	<update id="updateLastpriceByPid">
+		update commodity set last_price = #{biddingPrice} ,access_num =access_num+1
+		where p_id= #{pId}
+	</update>
+
+	<!-- int updateStateByPid(@Param("pId")Integer pId,@Param("state")Byte state); -->
+	<update id="updateStateByPid">
+		update commodity set state = #{state} where p_id = #{pId}
+	</update>
+	
+	<!-- 	Double selectMarginByPid(Integer pId); -->
+	<select id="selectMarginByPid" parameterType="Integer" resultType="Double">
+		SELECT
+		commodity.margin
+		FROM
+		commodity
+		WHERE
+		commodity.p_id = #{value}
+	</select>
+	
+	<!-- int updateCommStateAndPushtime(Integer pId); -->
+	<update id="updateCommStateAndPushtime" parameterType="Integer">
+		update commodity set state = 1, publish_time = now()
+		where p_id = #{pId}
+	</update>
+	
+	<!-- List&lt;Commodity&gt; selectByIds(String ids); -->
+	
+	<select id="selectByIds" parameterType="String" resultMap="BaseResultMap">
+		select * from commodity
+		<where>
+			<if test="ids !='' ">
+				p_id in (${ids})
+			</if>
+		</where>
+	</select>
+	
+	<!--  int selectCountByIds(@Param("ids")String ids);-->
+	
+	<select id="selectCountByIds" parameterType="String" resultType="int">
+		select count(0) from commodity
+		<where>
+			<if test="ids !='' ">
+				p_id in (${ids})
+			</if>
+		</where>
+	</select>
+	
+	<!-- List<Commodity> selectCommoByPubilshTime(@Param("startDay")String startDay,@Param("endDay") String endDay); -->
+	
+	<select id="selectCommoByPubilshTime" resultMap="BaseResultMap">
+		select * from commodity
+		where publish_time between #{startDay} and #{endDay}
+	</select>
+</mapper>

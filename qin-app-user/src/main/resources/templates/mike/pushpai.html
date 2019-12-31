@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>一拍网</title>
+<!-- <link rel="stylesheet" th:href="@{/moon/css/bootstrap.css}" /> -->
+<link rel="stylesheet" th:href="@{/moon/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/icon/css/font-awesome.min.css}" />
+<link rel="stylesheet" th:href="@{/upload/css/uploader.css}" />
+
+
+<style type="text/css">
+.divo {
+	height: 800px;
+}
+</style>
+
+
+</head>
+<body>
+	<div class="container-fluid border divo" id="app">
+		<div class="col-md-10 col-md-offset-1 ">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<h3>发布拍品</h3>
+				</div>
+				<div class="panel-body">
+					<table
+						class="table table-bordered table-striped table-hover table-condensed">
+						<tr class="form-inline">
+							<td>拍品名称 ： <input id="pName" type="text"
+								class="form-control" placeholder=" _输入商品名称"></td>
+							<td>拍品类别 ： <select name="type" id="type"
+								class="form-control">
+									<option value="1">奢侈名品</option>
+									<option value="2">艺术精品</option>
+									<option value="3">紫砂陶瓷</option>
+									<option value="4">和田玉</option>
+									<option value="0">其他</option>
+							</select></td>
+						</tr>
+						<tr class="form-inline">
+							<td>起拍价格 ： <input id="firstPrice" type="number"
+								class="form-control" min="1" value="0" step="100"></td>
+							<td>保证金 ：<input id="margin" type="number"
+								class="form-control" min="1" value="0" step="100"></td>
+						</tr>
+						<tr class="form-inline">
+							<td>最小加价 ： <input id="priceStep" type="number"
+								class="form-control" min="1" value="0" step="100"></td>
+							<td></td>
+						</tr>
+					</table>
+				</div>
+				<div class="panel-footer　">
+					<div class="row">
+						<div class="col-md-2">
+							<span class="btn btn-default" style="margin-left: 30px"
+								id="btn-upload" data-toggle="popover" data-placement="top" data-content="点击上传图片">上传拍品图片</span>
+						</div>
+						<div class="col-md-10" id="view-upload"></div>
+					</div>
+					<div class="row">
+						<div class="col-md-2">
+							<span class="btn btn-default" style="margin: 20px 30px"
+								id="upload-info" data-toggle="popover" data-placement="bottom" data-content="点击上传图片">上传详情图片</span>
+						</div>
+						<div class="col-md-10" id="view-info"></div>
+
+					</div>
+					<div class="row">
+						<div class="col-md-3">
+
+							<button class="btn btn-info btn-lg " style="margin-left: 450px"
+								onclick="conserve();">保存</button>
+						</div>
+
+						<div class="col-md-3">
+
+							<button class="btn btn-danger btn-lg " style="margin-left: 450px"
+								onclick="pushThis()">发布</button>
+							<br>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- js -->
+	<script th:src="@{/moon/js/jquery.js}"></script>
+	<script th:src="@{/moon/js/vue.js}"></script>
+	<script th:src="@{/moon/js/bootstrap.js}"></script>
+	<script th:src="@{/layer/layer.js}"></script>
+	<script th:src="@{/moon/js/jquery.time.js}"></script>
+	<script th:src="@{/upload/js/uploader.js}"></script>
+	<script th:src="@{/moon/js/popper.js}"></script>
+	<script th:inline="javascript">
+		 var img = '';
+		/* 文件上传 */
+		new Q.Uploader({
+			url : "/upload",
+			target : $('#btn-upload')[0],
+			view : $('#view-upload')[0],
+			upName : "file" ,
+			dataType :"text" ,
+			on : {
+				complete : function(task) {
+					img=task.response;
+				}
+		
+			}
+		});
+		var info = '';
+		new Q.Uploader({
+			url : "/uploadInfo",
+			target : $('#upload-info')[0],
+			view : $('#view-info')[0],
+			upName : "file" ,
+			dataType :"text" ,
+			on : {
+				complete : function(task) {
+					info=task.response;
+				}
+		
+			}
+		});
+		
+		
+		function conserve() {
+			var pName = $('#pName').val();
+			var type = $('#type').val();
+			var firstPrice = $('#firstPrice').val();
+			var margin = $('#margin').val();
+			var priceStep = $('#priceStep').val();
+			$.post("/paipai/Commodity/conserveMsg",{
+				pName:pName,
+				type:type,
+				firstPrice:firstPrice,
+				margin:margin,
+				priceStep:priceStep,
+				info :info,
+				img : img
+			},function(data){
+				if(data=='ok'){
+					layer.msg('保存成功 !', {icon: 1});
+					setTimeout(function() {
+						location.reload();
+					},3000);
+				}
+				else
+					layer.msg(data,{icon: 2});
+			})
+		}
+		
+		function pushThis() {
+			var pName = $('#pName').val();
+			var type = $('#type').val();
+			var firstPrice = $('#firstPrice').val();
+			var margin = $('#margin').val();
+			var priceStep = $('#priceStep').val();
+			$.post("/paipai/Commodity/pushThis",{
+				pName:pName,
+				type:type,
+				firstPrice:firstPrice,
+				margin:margin,
+				priceStep:priceStep,
+				info :info,
+				img : img
+			},function(data){
+				if(data=='ok'){
+					layer.msg('发布成功 !', {icon: 1});
+					setTimeout(function() {
+						location.reload();
+					},3000);
+				}
+				else
+					layer.msg(data,{icon: 2});
+			})
+			
+			
+		}
+		
+	    $(function () {
+	        $('[data-toggle="popover"]').popover();
+	    });
+		
+		
+		
+		
+	</script>
+</body>
+</html>
