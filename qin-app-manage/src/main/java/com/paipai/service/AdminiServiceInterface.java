@@ -3,16 +3,14 @@ package com.paipai.service;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import feign.hystrix.FallbackFactory;
 
 
-@FeignClient(name = "QIN-APP-USER",fallbackFactory = MyFallBack.class)
+//@FeignClient(name = "QIN-APP-USER",fallbackFactory = MyFallBack.class)
 public interface AdminiServiceInterface {
 
 	@GetMapping("/paipai/User/findAllUser")

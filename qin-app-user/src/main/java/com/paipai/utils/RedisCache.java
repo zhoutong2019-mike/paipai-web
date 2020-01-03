@@ -1,6 +1,7 @@
 package com.paipai.utils;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.concurrent.Callable;
 import org.springframework.cache.Cache;
 import org.springframework.cache.support.SimpleValueWrapper;
@@ -36,7 +37,7 @@ public class RedisCache implements Cache {
 				return connection.del(keyf.getBytes());
 			}
 		});
-		System.out.println("--------删除缓存--------");
+		System.out.println(new Date()+"--------删除缓存--------");
 		System.out.println("key : " + keyf);
 	}
 

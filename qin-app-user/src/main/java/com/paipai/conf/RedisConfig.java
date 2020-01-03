@@ -33,6 +33,7 @@ public class RedisConfig<E> {
 		factory.setPoolConfig(pool);// 设置连接池
 		factory.setHostName("127.0.0.1");
 		factory.setPort(6379);
+		factory.setDatabase(2);
 		factory.setTimeout(100000);
 		factory.setUsePool(true);
 		return factory;

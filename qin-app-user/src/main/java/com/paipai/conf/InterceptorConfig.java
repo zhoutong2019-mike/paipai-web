@@ -1,11 +1,12 @@
 package com.paipai.conf;
 
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import com.paipai.interceptor.VerifyInterceptor;
 
-//@Configuration
+@Configuration
 public class InterceptorConfig extends WebMvcConfigurerAdapter{
 	
 	@Override
