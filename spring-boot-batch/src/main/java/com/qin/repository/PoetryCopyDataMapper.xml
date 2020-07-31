@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qin.repository.PoetryCopyDataMapper">
+    <resultMap id="BaseResultMap" type="com.qin.domain.Poetry">
+        <!-- WARNING - @mbg.generated -->
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="title" jdbcType="VARCHAR" property="title" />
+        <result column="author" jdbcType="VARCHAR" property="author" />
+        <result column="kind" jdbcType="VARCHAR" property="kind" />
+        <result column="intro" jdbcType="VARCHAR" property="intro" />
+        <result column="content" jdbcType="VARCHAR" property="content" />
+    </resultMap>
+
+    <sql id="basecolumn">
+        (title,author,kind,intro,content)
+    </sql>
+
+ <insert id="batchInsertPoetryData" >
+
+     insert into  poetry_copy_data_two <include refid="basecolumn" />
+     values
+     <foreach collection="list" item="item" index="index" separator="," >
+         (#{item.title},#{item.author},#{item.kind},#{item.intro},#{item.content})
+     </foreach>
+  </insert>
+
+
+
+</mapper>

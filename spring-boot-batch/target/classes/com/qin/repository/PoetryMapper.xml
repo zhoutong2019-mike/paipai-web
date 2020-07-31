@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qin.repository.PoetryMapper">
+    <resultMap id="BaseResultMap" type="com.qin.domain.Poetry">
+        <!-- WARNING - @mbg.generated -->
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="title" jdbcType="VARCHAR" property="title" />
+        <result column="author" jdbcType="VARCHAR" property="author" />
+        <result column="kind" jdbcType="VARCHAR" property="kind" />
+        <result column="intro" jdbcType="VARCHAR" property="intro" />
+        <result column="content" jdbcType="VARCHAR" property="content" />
+    </resultMap>
+
+    <sql id="basecolumn">
+        id,title,author,kind,intro,content
+    </sql>
+
+    <!--queryPoetryByIds-->
+    <select id="queryPoetryByIds"  resultMap="BaseResultMap">
+
+        select  <include refid="basecolumn"/> from poetry limit 100
+ <!--       <foreach collection="ids" index="index" item="id" open="where id in (" separator="," close=")">
+            #{id}
+        </foreach>-->
+    </select>
+
+    <!--   @Select("select * from poetry where id = #{value}")
+     Poetry queryPoetryById(Integer id) ;-->
+
+<!--
+    <select id="queryPoetryById" parameterType="map" resultMap="BaseResultMap">
+
+        select  <include refid="basecolumn"/> from  poetry where id=#{id}
+    </select>
+-->
+
+
+
+
+   <!-- &lt;!&ndash;int insertOne(Poetry poetry); &ndash;&gt;
+    <insert id="insertOne" parameterType="com.qin.entity.Poetry"
+            useGeneratedKeys="true" keyProperty="id">
+        insert into poetry (
+        <include refid="basecolumn" />
+        ) value(#{id},#{title},#{author},#{kind},#{intro},#{content})
+    </insert>
+
+    &lt;!&ndash; Map<String, Object> selectOneToMap(int id); &ndash;&gt;
+    <select id="selectOneToMap" resultType="map" parameterType="int">
+
+        select
+        <include refid="basecolumn" />
+        from poetry where id=#{id}
+
+    </select>
+
+    &lt;!&ndash; List<Map<String, Object>> selectAllToListMap(); &ndash;&gt;
+    <select id="selectAllToListMap" resultType="map">
+        select
+        <include refid="basecolumn" />
+        from poetry
+    </select>
+
+    &lt;!&ndash; @MapKey("id") Map<Integer, Poetry> selectOneToMapKey(int key); &ndash;&gt;
+    <select id="selectOneToMapKey" resultType="map"
+            parameterType="int">
+        select
+        <include refid="basecolumn" />
+        from poetry where id = #{key}
+    </select>-->
+
+
+
+
+
+
+
+</mapper>

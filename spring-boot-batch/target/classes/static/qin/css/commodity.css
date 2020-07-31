@@ -1,0 +1,61 @@
+.item {
+	width: 236px;
+	height: 370px;
+	margin-left: 20px;
+	float: left;
+}
+
+img {
+	width: 206px;
+	height: 206px;
+	margin: 10px 13px;
+}
+
+img:hover {
+	transition: all 1s; /* ת�����ʱ��*/
+	transform: scale(1.06);
+}
+
+.title {
+	width: 206px;
+	height: 28px;
+	font-size: 15px;
+	color: #222222;
+	text-align: center;
+	padding-left: 10px;
+	overflow: hidden; /* ������������*/
+	white-space: nowrap; /* ǿ�Ʋ�����*/
+	text-overflow: ellipsis; /*��������ʹ��ʡ�Ժ�*/
+}
+
+.title:hover {
+	color: #ff0000 ;!important
+}
+
+.span1 {
+	font-size: 12px;
+	color: #999999;
+	margin-left: 10px;
+}
+
+.price {
+	font-size: 20px;
+	color: #DB0011;
+	margin-left: 13px;
+	font-weight: bold;
+}
+
+.times {
+	font-size: 12px;
+	color: #D19249;
+	margin: 6px 22px;
+}
+
+.span2 {
+	color: #999999;
+}
+
+.mydiv {
+	width: 206px;
+	height: 40px;
+}

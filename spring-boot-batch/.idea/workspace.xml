@@ -1,0 +1,996 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/src/main/java/com/qin/config/BatchConfig.java" line="171" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d06f1db2-9043-4269-b93d-b5d99d555483" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../JavaProjectTestDemo/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JavaProjectTestDemo/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JavaProjectTestDemo/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JavaProjectTestDemo/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JavaProjectTestDemo/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JavaProjectTestDemo/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JavaProjectTestDemo/JavaProjectTestDemo.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JavaProjectTestDemo/src/com/qin/demo/123" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JavaProjectTestDemo/src/com/qin/demo/456" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JavaProjectTestDemo/src/com/qin/demo/Demo001.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.classpath" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.project" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.settings/org.eclipse.core.resources.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.settings/org.eclipse.m2e.core.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.settings/org.eclipse.wst.common.project.facet.core.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.settings/org.springframework.ide.eclipse.boot.properties.editor.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.settings/org.springframework.ide.eclipse.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/qin/BootModelApp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/qin/batch/BatchInsertPoetryWriter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/qin/batch/BatchPoetryProcesser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/qin/batch/BatchPoetryReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/qin/config/BatchConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/qin/config/ExecutorConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/qin/config/InterceptorConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/qin/config/MyConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/qin/config/RedisConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/qin/controller/HomeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/qin/domain/Poetry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/qin/listener/JobListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/qin/repository/PoetryCopyDataMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/qin/repository/PoetryCopyDataMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/qin/repository/PoetryMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/qin/repository/PoetryMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/qin/service/PoetryCopyDataService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/qin/service/PoetryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/qin/service/impl/PoetryCopyDataServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/qin/service/impl/PoetryServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/qin/timer/SketchTask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/qin/utils/AutoCoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/qin/utils/AutoCoder.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/qin/utils/BaseController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/qin/utils/ConfigUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/qin/utils/JwtUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/qin/utils/MyFileUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/qin/utils/MyHtmlUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/qin/utils/MyStrUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/qin/utils/RedisCache.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/config/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/autoc/autoc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/chart/echarts.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/chart/vintage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/date/flatpickr.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/date/flatpickr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/edit/wangEditor.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/edit/wangEditor.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/icon/css/font-awesome.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/icon/fonts/FontAwesome.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/icon/fonts/fontawesome-webfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/icon/fonts/fontawesome-webfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/icon/fonts/fontawesome-webfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/icon/fonts/fontawesome-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/icon/fonts/fontawesome-webfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/jqform/jquery.form.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/jqform/jquery.validation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/jqform/messages_zh.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/layer/layer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/layer/mobile/layer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/layer/mobile/need/layer.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/layer/theme/default/icon-ext.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/layer/theme/default/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/layer/theme/default/layer.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/layer/theme/default/loading-0.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/layer/theme/default/loading-1.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/layer/theme/default/loading-2.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/menu/metisMenu.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/menu/metisMenu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/menu/vertical.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/page/jqpaginator.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/qin/css/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/qin/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/qin/css/commodity.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/qin/css/decription.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/qin/img/bg-a.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/qin/img/bg-b.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/qin/img/bg-c.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/qin/js/analogClock.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/qin/js/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/qin/js/cookie.jwt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/qin/js/jquery.cookie.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/qin/js/jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/qin/js/jquery.time.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/qin/js/jquery.url.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/qin/js/jwt.decode.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/qin/js/popper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/qin/js/vue.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/sign/css/sign.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/sign/js/calendar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/switch/switch.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/switch/switch.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/tabs/css/frmtab.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/tabs/images/jerichoclose.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/tabs/images/jerichoload.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/tabs/images/jerichoslider.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/tabs/images/jerichotab.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/tabs/images/jerichotab2.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/tabs/images/smallloader.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/tabs/images/tabline.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/tabs/js/frmtab.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/tree/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/tree/css/metroStyle/img/line_conn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/tree/css/metroStyle/img/loading.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/tree/css/metroStyle/img/metro.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/tree/css/metroStyle/img/metro.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/tree/css/metroStyle/metroStyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/tree/css/zTreeStyle/img/diy/1_close.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/tree/css/zTreeStyle/img/diy/1_open.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/tree/css/zTreeStyle/img/diy/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/tree/css/zTreeStyle/img/diy/3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/tree/css/zTreeStyle/img/diy/4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/tree/css/zTreeStyle/img/diy/5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/tree/css/zTreeStyle/img/diy/6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/tree/css/zTreeStyle/img/diy/7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/tree/css/zTreeStyle/img/diy/8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/tree/css/zTreeStyle/img/diy/9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/tree/css/zTreeStyle/img/line_conn.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/tree/css/zTreeStyle/img/loading.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/tree/css/zTreeStyle/img/zTreeStandard.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/tree/css/zTreeStyle/img/zTreeStandard.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/tree/css/zTreeStyle/zTreeStyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/tree/js/jquery-1.4.4.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/tree/js/jquery.ztree.all.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/tree/js/jquery.ztree.all.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/tree/js/jquery.ztree.core.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/tree/js/jquery.ztree.core.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/tree/js/jquery.ztree.excheck.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/tree/js/jquery.ztree.excheck.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/tree/js/jquery.ztree.exedit.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/tree/js/jquery.ztree.exedit.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/tree/js/jquery.ztree.exhide.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/tree/js/jquery.ztree.exhide.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/tree/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/tree/zTree.v3.jquery.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/upload/css/uploader.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/upload/css/uploader.image.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/upload/help.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/upload/images/Q/progress.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/upload/js/uploader.image.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/upload/js/uploader.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/error/404.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/error/500.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/error/505.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/view/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../moon-parent/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../moon-parent/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-foreground/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../qin-app-foreground/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-foreground/src/main/java/com/qin/ForegroundApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../qin-app-foreground/src/main/java/com/qin/ForegroundApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-foreground/src/main/java/com/qin/config/InterceptorConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../qin-app-foreground/src/main/java/com/qin/config/InterceptorConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-foreground/src/main/java/com/qin/controller/Foreground.java" beforeDir="false" afterPath="$PROJECT_DIR$/../qin-app-foreground/src/main/java/com/qin/controller/ForegroundController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-foreground/src/main/resources/templates/view/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/../qin-app-foreground/src/main/resources/templates/view/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-foreground/target/classes/META-INF/maven/com.qin/spring-boot-model/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../qin-app-foreground/target/classes/META-INF/maven/com.qin/spring-boot-model/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-foreground/target/classes/META-INF/maven/com.qin/spring-boot-model/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../qin-app-foreground/target/classes/META-INF/maven/com.qin/spring-boot-model/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-foreground/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../qin-app-foreground/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-foreground/target/classes/com/qin/ForegroundApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/../qin-app-foreground/target/classes/com/qin/ForegroundApp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-foreground/target/classes/com/qin/config/InterceptorConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/../qin-app-foreground/target/classes/com/qin/config/InterceptorConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-foreground/target/classes/com/qin/controller/Foreground.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-foreground/target/classes/templates/view/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/../qin-app-foreground/target/classes/templates/view/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-manage/src/main/java/com/paipai/ManageApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../qin-app-manage/src/main/java/com/paipai/ManageApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-manage/src/main/java/com/paipai/TestMain.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-manage/src/main/java/com/paipai/conf/LoginInterceptor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-manage/src/main/java/com/paipai/service/AdminiServiceInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/../qin-app-manage/src/main/java/com/paipai/service/AdminiServiceInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-manage/target/classes/META-INF/maven/com.paipai/qin-app-manage/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../qin-app-manage/target/classes/META-INF/maven/com.paipai/qin-app-manage/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-manage/target/classes/com/paipai/ManageApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/../qin-app-manage/target/classes/com/paipai/ManageApp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-manage/target/classes/com/paipai/TestMain.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-manage/target/classes/com/paipai/conf/LoginInterceptor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-manage/target/classes/com/paipai/service/AdminiServiceInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/../qin-app-manage/target/classes/com/paipai/service/AdminiServiceInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-manage/target/classes/com/paipai/service/MyFallBack$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../qin-app-manage/target/classes/com/paipai/service/MyFallBack$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-manage/target/classes/com/paipai/service/MyFallBack.class" beforeDir="false" afterPath="$PROJECT_DIR$/../qin-app-manage/target/classes/com/paipai/service/MyFallBack.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-user/src/main/java/com/paipai/UserApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../qin-app-user/src/main/java/com/paipai/UserApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-user/src/main/java/com/paipai/conf/InterceptorConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../qin-app-user/src/main/java/com/paipai/conf/InterceptorConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-user/src/main/java/com/paipai/controller/CommodityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../qin-app-user/src/main/java/com/paipai/controller/CommodityController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-user/src/main/java/com/paipai/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../qin-app-user/src/main/java/com/paipai/controller/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-user/src/main/java/com/paipai/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../qin-app-user/src/main/java/com/paipai/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-user/src/main/java/com/paipai/interceptor/VerifyInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../qin-app-user/src/main/java/com/paipai/interceptor/VerifyInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-user/src/main/java/com/paipai/utils/BaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../qin-app-user/src/main/java/com/paipai/utils/BaseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-user/src/main/java/com/paipai/utils/MikeUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../qin-app-user/src/main/java/com/paipai/utils/MikeUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-user/src/main/resources/templates/mike/artwork.html" beforeDir="false" afterPath="$PROJECT_DIR$/../qin-app-user/src/main/resources/templates/mike/artwork.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-user/src/main/resources/templates/mike/description.html" beforeDir="false" afterPath="$PROJECT_DIR$/../qin-app-user/src/main/resources/templates/mike/description.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-user/src/main/resources/templates/mike/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/../qin-app-user/src/main/resources/templates/mike/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-user/src/main/resources/templates/mike/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/../qin-app-user/src/main/resources/templates/mike/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-user/src/main/resources/templates/mike/pushpai.html" beforeDir="false" afterPath="$PROJECT_DIR$/../qin-app-user/src/main/resources/templates/mike/pushpai.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-user/src/main/resources/templates/mike/usercenter.html" beforeDir="false" afterPath="$PROJECT_DIR$/../qin-app-user/src/main/resources/templates/mike/usercenter.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-user/target/classes/META-INF/maven/com.moon/qin-app-user/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../qin-app-user/target/classes/META-INF/maven/com.moon/qin-app-user/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-user/target/classes/com/paipai/conf/InterceptorConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/../qin-app-user/target/classes/com/paipai/conf/InterceptorConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-user/target/classes/com/paipai/controller/CommodityController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../qin-app-user/target/classes/com/paipai/controller/CommodityController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-user/target/classes/com/paipai/controller/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../qin-app-user/target/classes/com/paipai/controller/HomeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-user/target/classes/com/paipai/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../qin-app-user/target/classes/com/paipai/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-user/target/classes/com/paipai/interceptor/VerifyInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/../qin-app-user/target/classes/com/paipai/interceptor/VerifyInterceptor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-user/target/classes/com/paipai/utils/BaseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../qin-app-user/target/classes/com/paipai/utils/BaseController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-user/target/classes/com/paipai/utils/DateEditor.class" beforeDir="false" afterPath="$PROJECT_DIR$/../qin-app-user/target/classes/com/paipai/utils/DateEditor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-user/target/classes/com/paipai/utils/MikeUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/../qin-app-user/target/classes/com/paipai/utils/MikeUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-user/target/classes/templates/mike/artwork.html" beforeDir="false" afterPath="$PROJECT_DIR$/../qin-app-user/target/classes/templates/mike/artwork.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-user/target/classes/templates/mike/description.html" beforeDir="false" afterPath="$PROJECT_DIR$/../qin-app-user/target/classes/templates/mike/description.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-user/target/classes/templates/mike/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/../qin-app-user/target/classes/templates/mike/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-user/target/classes/templates/mike/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/../qin-app-user/target/classes/templates/mike/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-user/target/classes/templates/mike/pushpai.html" beforeDir="false" afterPath="$PROJECT_DIR$/../qin-app-user/target/classes/templates/mike/pushpai.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-app-user/target/classes/templates/mike/usercenter.html" beforeDir="false" afterPath="$PROJECT_DIR$/../qin-app-user/target/classes/templates/mike/usercenter.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-rabbit-MQ/src/main/java/com/qin/simple/Send.java" beforeDir="false" afterPath="$PROJECT_DIR$/../qin-rabbit-MQ/src/main/java/com/qin/simple/Send.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-rabbit-MQ/target/classes/META-INF/maven/com.qin/qin-rabbit-MQ/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../qin-rabbit-MQ/target/classes/META-INF/maven/com.qin/qin-rabbit-MQ/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../qin-rabbit-MQ/target/classes/com/qin/simple/Send.class" beforeDir="false" afterPath="$PROJECT_DIR$/../qin-rabbit-MQ/target/classes/com/qin/simple/Send.class" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/qin/config/BatchConfig.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="569">
+              <caret line="84" column="43" lean-forward="true" selection-start-line="84" selection-start-column="43" selection-end-line="84" selection-end-column="43" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/qin/config/ExecutorConfiguration.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="152">
+              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/qin/controller/HomeController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="43" column="25" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="25" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/qin/domain/Poetry.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-266">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/qin/batch/BatchPoetryProcesser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="152">
+              <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/qin/listener/JobListener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="93">
+              <caret line="14" column="49" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="49" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/qin/repository/PoetryMapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="266">
+              <caret line="14" column="35" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/qin/repository/PoetryCopyDataMapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="10" column="27" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="33" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/qin/repository/PoetryCopyDataMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="293">
+              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/qin/repository/PoetryMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/java/com/qin/repository/impl/PoetryRepositoryImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/qin/repository/PoeryRepository.xml.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/qin/repository/PoetryRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/qin/repository/PoetryMapper.fxml" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/view/home.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/qin/config/ExecutorConfiguration.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/qin/listener/JobListener.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/qin/controller/HomeController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/qin/timer/SketchTash.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/qin/BootModelApp.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/qin/service/PoetryCopyDataService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/qin/repository/PoetryCopyDataMapper.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/qin/repository/PoetryCopyDataMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/qin/service/impl/PoetryCopyDataServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/qin/repository/PoetryCopyDataMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/qin/config/BatchInsertPoetryWriter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/qin/batch/BatchPoetryReader.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/qin/timer/SketchTask.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/qin/domain/Poetry.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/qin/batch/BatchInsertPoetryWriter.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/config/application.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/qin/repository/PoetryMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/qin/repository/PoetryMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/qin/service/PoetryService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/qin/service/impl/PoetryServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/qin/batch/BatchPoetryProcesser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/qin/config/BatchConfig.java" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="$PROJECT_DIR$/../../../apache-maven-3.6.3" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="downloadDocsAutomatically" value="true" />
+        <option name="downloadSourcesAutomatically" value="true" />
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1" />
+    <option name="y" value="19" />
+    <option name="width" value="1400" />
+    <option name="height" value="1000" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="spring-boot-Batch" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spring-boot-batch" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spring-boot-Batch" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spring-boot-batch" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spring-boot-Batch" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spring-boot-batch" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spring-boot-Batch" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spring-boot-batch" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spring-boot-Batch" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spring-boot-batch" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spring-boot-Batch" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spring-boot-batch" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="qin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spring-boot-Batch" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spring-boot-batch" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="qin" type="462c0819:PsiDirectoryNode" />
+              <item name="batch" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spring-boot-Batch" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spring-boot-batch" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="qin" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spring-boot-Batch" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spring-boot-batch" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="qin" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spring-boot-Batch" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spring-boot-batch" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="qin" type="462c0819:PsiDirectoryNode" />
+              <item name="domain" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spring-boot-Batch" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spring-boot-batch" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="qin" type="462c0819:PsiDirectoryNode" />
+              <item name="listener" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spring-boot-Batch" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spring-boot-batch" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="qin" type="462c0819:PsiDirectoryNode" />
+              <item name="repository" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelOrder2" value="2" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RequestMappingsPanelWidth2" value="75" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1596238705163" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15332031" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="terminal" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.qin.service" />
+      <recent name="com.qin.repository" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\JavaSoftware\eclipse space\spring workspace\spring-boot-batch\src\main\resources\config" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.BootModelApp">
+    <configuration name="AutoCoder" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.qin.utils.AutoCoder" />
+      <module name="spring-boot-Batch" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.qin.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BootModelApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-Batch" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.qin.BootModelApp" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.AutoCoder" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d06f1db2-9043-4269-b93d-b5d99d555483" name="Default Changelist" comment="" />
+      <created>1595549883330</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1595549883330</updated>
+      <workItem from="1595549885184" duration="1525000" />
+      <workItem from="1595598407470" duration="23802000" />
+      <workItem from="1595675855861" duration="6010000" />
+      <workItem from="1595849838210" duration="21176000" />
+      <workItem from="1596117878142" duration="3844000" />
+      <workItem from="1596202868669" duration="2816000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="59173000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49837488" visible="true" weight="0.19296375" />
+      <window_info id="Structure" order="1" sideWeight="0.50108224" side_tool="true" weight="0.19296375" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49733475" weight="0.2990249" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49946696" weight="0.32936078" />
+      <window_info anchor="bottom" id="Spring" order="7" sideWeight="0.49946696" weight="0.32936078" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.32936078" />
+      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5026652" side_tool="true" weight="0.6424702" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32936078" />
+      <window_info anchor="bottom" id="Java Enterprise" order="12" />
+      <window_info anchor="bottom" id="Database Changes" order="13" />
+      <window_info anchor="bottom" id="Version Control" order="14" weight="0.32936078" />
+      <window_info anchor="bottom" id="Problems" order="15" weight="0.32936078" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Database" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Theme Preview" order="7" />
+      <window_info anchor="right" id="Bean Validation" order="8" />
+      <window_info anchor="right" id="Maven" order="9" weight="0.18176973" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/qin/utils/AutoCoder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="224" column="14" lean-forward="true" selection-start-line="224" selection-start-column="14" selection-end-line="224" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/qin/repository/impl/PoetryRepositoryImpl.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/qin/repository/PoeryRepository.xml.fxml" />
+    <entry file="jar://$MAVEN_REPOSITORY$/tk/mybatis/mapper-base/1.1.5/mapper-base-1.1.5-sources.jar!/tk/mybatis/mapper/common/Mapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="35" column="3" lean-forward="true" selection-start-line="35" selection-start-column="3" selection-end-line="35" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/view/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="16" column="8" lean-forward="true" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/qin/timer/SketchTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="28" column="39" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/qin/service/impl/PoetryCopyDataServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="21" column="62" selection-start-line="21" selection-start-column="62" selection-end-line="21" selection-end-column="62" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-dependencies/1.5.20.RELEASE/spring-boot-dependencies-1.5.20.RELEASE.pom">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3947">
+          <caret line="564" column="12" selection-start-line="564" selection-start-column="12" selection-end-line="564" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/qin/service/PoetryCopyDataService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/qin/service/PoetryService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/qin/service/impl/PoetryServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="94" column="20" selection-start-line="94" selection-start-column="20" selection-end-line="94" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/config/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/qin/BootModelApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/qin/batch/BatchInsertPoetryWriter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="93" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/qin/batch/BatchPoetryReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/qin/config/MyConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/qin/config/InterceptorConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/qin/controller/HomeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="43" column="25" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/qin/domain/Poetry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-266">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/qin/listener/JobListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="14" column="49" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/qin/repository/PoetryCopyDataMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="27" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/qin/repository/PoetryCopyDataMapper.xml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/qin/repository/PoetryMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="35" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/qin/repository/PoetryMapper.xml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/qin/batch/BatchPoetryProcesser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/qin/config/ExecutorConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/qin/config/BatchConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="569">
+          <caret line="84" column="43" lean-forward="true" selection-start-line="84" selection-start-column="43" selection-end-line="84" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>spring-boot-Batch</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: ch.qos.logback:logback-classic:1.1.11</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
